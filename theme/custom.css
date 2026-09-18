@@ -1,0 +1,57 @@
+/* Railroad Network docs: a light touch over mdBook's default theme.
+   Goal: comfortable long-form reading, and callouts that read as callouts. */
+
+:root {
+  --content-max-width: 780px;
+}
+
+.content main {
+  line-height: 1.65;
+}
+
+.content h1 {
+  margin-top: 1.2em;
+}
+
+.content h2 {
+  margin-top: 2em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--table-border-color);
+}
+
+/* Blockquotes are our callouts. Start one with a bold lead such as
+   **Warning.** or **Tip.** and it reads as a labelled note. */
+.content blockquote {
+  margin: 1.4em 0;
+  padding: 0.8em 1.2em;
+  border-left: 4px solid var(--links);
+  border-radius: 4px;
+  background: var(--quote-bg);
+  border-top: none;
+  border-bottom: none;
+}
+
+.content blockquote p:first-child {
+  margin-top: 0;
+}
+
+.content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tables: a little more air. */
+.content table td,
+.content table th {
+  padding: 0.5em 0.9em;
+}
+
+/* Planned pages: a "[Title]()" entry in SUMMARY.md renders as a bare
+   <span> inside the link wrapper, where a written page renders an <a>. */
+.chapter .chapter-link-wrapper > span {
+  opacity: 0.55;
+}
+
+.chapter .chapter-link-wrapper > span::after {
+  content: " · planned";
+  font-size: 0.8em;
+}
