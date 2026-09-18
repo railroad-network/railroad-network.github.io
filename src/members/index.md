@@ -19,7 +19,7 @@ Here is what the app lets you do today, in the order you will meet it:
 7. **Offer and find things** in the marketplace, agree a price, and pay for
    what you agreed. [The marketplace](the-marketplace.md).
 8. **Contest a payment** that went wrong, respond when someone contests
-   yours, and serve on a jury when drawn. *(Page not yet written; the feature is built.)*
+   yours, and serve on a jury when drawn. [Contest a payment](contest-a-payment.md).
 9. **Take part in governance**: read the Charter, co-sign and vote on
    proposals. See the organizers' section for how it works: [How decisions get made](../organizers/how-decisions-get-made.md).
 
