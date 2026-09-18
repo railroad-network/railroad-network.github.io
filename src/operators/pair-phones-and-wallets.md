@@ -75,6 +75,9 @@ signing again, so their chain cannot fork.
 
 ## After pairing
 
-Nudge every member through in-app social recovery in the first week, once
-there are a few members to hand shards to. A lost phone without recovery is a
-lost identity, and helping members avoid that is operator work too.
+Nudge every member through two things in the first week: **Export wallet**
+(Settings), and the recovery circle once there are a few members to hand
+shards to. Today only the export can actually restore a member's key; see
+[Back up and recover your keys](../members/keep-your-keys-safe.md). A lost
+phone without either is a lost identity, and helping members avoid that is
+operator work too.

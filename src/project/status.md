@@ -35,6 +35,10 @@ Railroad Network is built in phases, each meant to be useful on its own.
 
 - **No federation.** Communities cannot see or trade with each other.
 - **No Tier 3 or higher.** Payments of 50 Commons and up are refused.
+- **No member key rebuild from a recovery circle.** Members can split their
+  key among holders and holders can answer a request, but the screen that
+  rebuilds a member's key on a new phone does not exist yet. The station's
+  own key rebuild is complete. Members back up with the wallet export.
 - **No SMS gateway.** The codec is built and tested; the physical modem side
   is not.
 - **No app store, no iOS.** Android, sideloaded.

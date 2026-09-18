@@ -37,8 +37,8 @@ that the first handshake was with the right machine.
 ## Right after joining
 
 - **Set up social recovery** as soon as there are a few members you trust.
-  The app nudges you from the Home screen ("Protect your account"). See
-  [Keep your keys safe](keep-your-keys-safe.md).
+  The app nudges you from the Home screen ("Protect your account"), and export
+  your wallet too. See [Back up and recover your keys](keep-your-keys-safe.md).
 - **Get vouched for.** Ask someone who knows you to vouch. Until you have
   some standing, larger payments and governance are closed to you. See
   [Vouching and standing](vouching-and-standing.md).

@@ -92,8 +92,16 @@ failover.
 balances moving: 24 hours for Tier 1, 48 hours for Tier 2. Doubles as the
 window in which it can be contested.
 
-**Shard.** One piece of a secret-shared key. A threshold of shards rebuilds
-the key; fewer reveal nothing. Used for both member and station recovery.
+**Shamir's secret sharing.** The scheme behind every shard on this site: a
+secret is split into N pieces such that any K rebuild it exactly and any K−1
+reveal nothing, by the mathematics rather than by policy. The project uses its
+own implementation (ADR-0004). Member circles use K = 3; the station's key
+and its encrypted volume use an operator-chosen threshold.
+
+**Shard.** One piece of a key split with Shamir's secret sharing, sealed to
+the holder it is handed to. A threshold of shards rebuilds the key; fewer
+reveal nothing. Used for member circles, station key recovery, and the
+encrypted at-rest volume.
 
 **Sortition.** Selection by lot. Juries are three members drawn by a
 standing-weighted, deterministic, log-derivable draw.

@@ -12,8 +12,8 @@ Here is what the app lets you do today, in the order you will meet it:
    both sides. [Pay and get paid](pay-and-get-paid.md).
 4. **Vouch** for people you know, and build your own standing through trade
    and vouches. [Vouching and standing](vouching-and-standing.md).
-5. **Protect your identity** with a passphrase and social recovery, so a lost
-   phone is not a lost you. [Keep your keys safe](keep-your-keys-safe.md).
+5. **Back up your identity** with a recovery circle and an export, so a lost
+   phone need not be a lost identity. [Back up and recover your keys](keep-your-keys-safe.md).
 6. **Keep trading when the network is down**, and understand what a
    headroom certificate is for. [When the network is down](when-the-network-is-down.md).
 7. **Offer and find things** in the marketplace, agree a price, and pay for

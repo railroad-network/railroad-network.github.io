@@ -31,8 +31,8 @@ When you are handed a newer `app-release.apk`, install it over the top. Your
 wallet and history are preserved.
 
 > **Do not uninstall first.** Uninstalling erases the wallet on the phone. If
-> you have set up [social recovery](keep-your-keys-safe.md) you can get it
-> back, but it is a ceremony with your friends, not a tap.
+> you have [exported your wallet](keep-your-keys-safe.md#walkthrough-export-your-wallet) you can get it
+> back into the command-line wallet, but not onto the phone yet.
 
 ## If the app stops syncing in the background
 

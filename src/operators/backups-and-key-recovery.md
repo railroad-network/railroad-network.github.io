@@ -106,12 +106,15 @@ archives still answer only to the old key wrapping.
 | Station machine dies | `station restore <archive>` on a new machine | Backups |
 | Passphrase lost, machine fine | `station recovery restore` | Key recovery |
 | Machine dies **and** passphrase lost | `station recovery restore --from-backup <archive>` | Both |
-| A member loses their phone | Their own social recovery, held by friends | Each member, in-app |
-| A member's phone is stolen | `station unpair <addr>`, then the member recovers on a new phone | Nothing to prepare |
+| A member loses their phone | Their wallet export, restored into the command-line wallet. The rebuild of a phone key from a member's recovery circle is not shipped yet | Each member, in-app |
+| A member's phone is stolen | `station unpair <addr>`, then the member restores from their export | Nothing to prepare |
 
 The first three rows protect the community. The last two protect a member,
-which is why nudging everyone through in-app social recovery is operator work
-too.
+which is why nudging everyone through the export and the recovery circle in
+[Back up and recover your keys](../members/keep-your-keys-safe.md) is operator
+work too. Note the asymmetry: the station's key can be rebuilt from its
+holders today; a member's phone key cannot yet, so the export is what saves a
+member.
 
 ## Seizure resistance
 

@@ -11,7 +11,7 @@
 - [Join your community](members/join-your-community.md)
 - [Pay and get paid](members/pay-and-get-paid.md)
 - [Vouching and standing](members/vouching-and-standing.md)
-- [Keep your keys safe](members/keep-your-keys-safe.md)
+- [Back up and recover your keys](members/keep-your-keys-safe.md)
 - [When the network is down](members/when-the-network-is-down.md)
 - [The marketplace](members/the-marketplace.md)
 - [Contest a payment](members/contest-a-payment.md)
