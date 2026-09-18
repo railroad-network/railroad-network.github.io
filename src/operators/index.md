@@ -25,13 +25,13 @@ pairing ceremony honest.**
    ceremony that is the actual security boundary.
 3. [Backups and key recovery](backups-and-key-recovery.md): the fifteen
    minutes that save the community.
-4. Encrypted at rest *(planned)*: the seizure-resistant profile, Linux only.
-5. The courier desk *(planned)*: ingesting paper, printing receipts and cards.
-6. Radio and text message *(planned)*: LoRa bring-up and the SMS seam.
-7. Keeping phones in sync *(planned)*: the per-vendor battery traps.
-8. Troubleshooting *(planned)*.
+4. Encrypted at rest *(page not yet written)*: the seizure-resistant profile, Linux only.
+5. The courier desk *(page not yet written)*: ingesting paper, printing receipts and cards.
+6. Radio and text message *(page not yet written)*: LoRa bring-up and the SMS seam.
+7. Keeping phones in sync *(page not yet written)*: the per-vendor battery traps.
+8. Troubleshooting *(page not yet written)*.
 
-Until the planned pages land, the full operator runbooks live in the `station`
+Until those pages are written, the full operator runbooks live in the `station`
 repo and are complete:
 
 - [Setting up a Railroad Network community](https://github.com/railroad-network/station/blob/main/docs/community-setup.md):

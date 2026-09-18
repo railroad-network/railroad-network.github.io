@@ -119,6 +119,6 @@ For communities under surveillance pressure there is an optional **encrypted
 at-rest profile** on Linux: the wallet and ledger live inside an encrypted
 volume whose key is itself split among member-held shards, and the station
 cannot boot without a quorum of holders present. It is one-way, needs
-practice, and has its own page planned. Until then, the runbook's
+practice, and has its own page coming. Until then, the runbook's
 [seizure resistance section](https://github.com/railroad-network/station/blob/main/docs/community-setup.md#44-seizure-resistance--the-encrypted-profile-optional-linux)
 is complete.

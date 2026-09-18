@@ -45,13 +45,13 @@
   padding: 0.5em 0.9em;
 }
 
-/* Planned pages: a "[Title]()" entry in SUMMARY.md renders as a bare
+/* Unwritten pages: a "[Title]()" entry in SUMMARY.md renders as a bare
    <span> inside the link wrapper, where a written page renders an <a>. */
 .chapter .chapter-link-wrapper > span {
   opacity: 0.55;
 }
 
 .chapter .chapter-link-wrapper > span::after {
-  content: " · planned";
+  content: " · page not yet written";
   font-size: 0.8em;
 }

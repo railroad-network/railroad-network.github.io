@@ -13,7 +13,7 @@
 - [Vouching and standing](members/vouching-and-standing.md)
 - [Keep your keys safe](members/keep-your-keys-safe.md)
 - [When the network is down](members/when-the-network-is-down.md)
-- [The marketplace]()
+- [The marketplace](members/the-marketplace.md)
 - [Contest a payment]()
 - [Using a computer instead of a phone]()
 

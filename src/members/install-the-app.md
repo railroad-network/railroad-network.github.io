@@ -49,5 +49,5 @@ does not fix it.
 
 A member with a laptop and no Android phone can hold their own key with the
 command-line wallet instead. It is the same identity model, driven from a
-terminal, and it works offline. *(Page planned; for now the operator's runbook
+terminal, and it works offline. *(Page not yet written; for now the operator's runbook
 covers it under [Pair phones and wallets](../operators/pair-phones-and-wallets.md).)*

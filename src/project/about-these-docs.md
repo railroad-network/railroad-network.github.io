@@ -38,7 +38,7 @@ Four sections by **audience**, not by component:
 - **Reference**: exact commands, the glossary, and pointers to the decision
   records.
 
-A planned page appears in the sidebar greyed out with no link. To add it,
+A page that is not yet written appears in the sidebar greyed out with no link; every feature the sidebar names is built, only the page is missing. To add it,
 write the file and replace the empty `[Title]()` entry in `SUMMARY.md` with a
 real path.
 
