@@ -106,15 +106,17 @@ archives still answer only to the old key wrapping.
 | Station machine dies | `station restore <archive>` on a new machine | Backups |
 | Passphrase lost, machine fine | `station recovery restore` | Key recovery |
 | Machine dies **and** passphrase lost | `station recovery restore --from-backup <archive>` | Both |
-| A member loses their phone | Their wallet export, restored into the command-line wallet. The rebuild of a phone key from a member's recovery circle is not shipped yet | Each member, in-app |
-| A member's phone is stolen | `station unpair <addr>`, then the member restores from their export | Nothing to prepare |
+| A member loses their phone | They rebuild their key on a new device from their recovery circle (**Recover an existing identity** in the app, or `rrn wallet recover` on a laptop), or restore their wallet export | Each member, in-app |
+| A member's phone is stolen | `station unpair <addr>` **first**, then the member recovers on a new phone and re-pairs | Nothing to prepare |
 
 The first three rows protect the community. The last two protect a member,
-which is why nudging everyone through the export and the recovery circle in
+which is why nudging everyone through the recovery circle and the export in
 [Back up and recover your keys](../members/keep-your-keys-safe.md) is operator
-work too. Note the asymmetry: the station's key can be rebuilt from its
-holders today; a member's phone key cannot yet, so the export is what saves a
-member.
+work too. Order matters when a phone was stolen: the thief holds the same key
+until you unpair it, so unpair first, then let the member recover. The
+member's reconstruction runs on their own device and never touches the
+station; every holder confirms the ceremony fingerprint out loud before
+contributing.
 
 ## Seizure resistance
 
@@ -122,6 +124,5 @@ For communities under surveillance pressure there is an optional **encrypted
 at-rest profile** on Linux: the wallet and ledger live inside an encrypted
 volume whose key is itself split among member-held shards, and the station
 cannot boot without a quorum of holders present. It is one-way, needs
-practice, and has its own page coming. Until then, the runbook's
-[seizure resistance section](https://github.com/railroad-network/station/blob/main/docs/community-setup.md#44-seizure-resistance--the-encrypted-profile-optional-linux)
-is complete.
+practice, and changes what a backup contains. See
+[Encrypted at rest](encrypted-at-rest.md).

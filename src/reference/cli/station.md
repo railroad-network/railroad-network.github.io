@@ -17,7 +17,7 @@ Commands:
   init              Bootstrap a new station: generate an identity and initialize storage
   run               Run the daemon (default)
   peers             Inspect the static peer configuration
-  pair-mobile       Confirm a mobile's pairing request (T1.3.3). With no address, lists the pending requests and their confirmation codes; pass an address to confirm it after comparing the code with the mobile's screen in person
+  pair-mobile       Confirm a mobile's pairing request (ADR-0008). With no address, lists the pending requests and their confirmation codes; pass an address to confirm it after comparing the code with the mobile's screen in person
   list-mobiles      List the mobiles currently paired with this station
   unpair            Revoke a mobile's pairing by its bech32 address
   backup            Write an encrypted backup of this station (wallet + ledger + config)
@@ -90,7 +90,7 @@ Options:
 ### `station pair-mobile`
 
 ```text
-Confirm a mobile's pairing request (T1.3.3). With no address, lists the pending requests and their confirmation codes; pass an address to confirm it after comparing the code with the mobile's screen in person
+Confirm a mobile's pairing request (ADR-0008). With no address, lists the pending requests and their confirmation codes; pass an address to confirm it after comparing the code with the mobile's screen in person
 
 Usage: station pair-mobile [OPTIONS] [ADDRESS]
 

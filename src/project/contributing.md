@@ -22,8 +22,10 @@ page is wrong. Please say so.
 - [`mobile`](https://github.com/railroad-network/mobile): the Android app.
   Its [CONTRIBUTING.md](https://github.com/railroad-network/mobile/blob/main/CONTRIBUTING.md).
 
-Design changes go through an Architecture Decision Record before code. The
-[ADR index](../reference/adrs.md) shows the form.
+Both repos are built by a single maintainer ahead of an independent audit, so
+unsolicited code changes are not being merged yet; open an issue to discuss a
+change first. Design changes go through an Architecture Decision Record before
+code. The [ADR index](../reference/adrs.md) shows the form.
 
 ## Running a pilot
 

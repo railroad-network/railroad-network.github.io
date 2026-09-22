@@ -30,9 +30,9 @@ station, can act as you.
 When you are handed a newer `app-release.apk`, install it over the top. Your
 wallet and history are preserved.
 
-> **Do not uninstall first.** Uninstalling erases the wallet on the phone. If
-> you have [exported your wallet](keep-your-keys-safe.md#walkthrough-export-your-wallet) you can get it
-> back into the command-line wallet, but not onto the phone yet.
+> **Do not uninstall first.** Uninstalling erases the wallet on the phone. You
+> can get your identity back from a [wallet export or your recovery circle](keep-your-keys-safe.md),
+> but only if you set one of those up beforehand.
 
 ## If the app stops syncing in the background
 
@@ -49,5 +49,5 @@ does not fix it.
 
 A member with a laptop and no Android phone can hold their own key with the
 command-line wallet instead. It is the same identity model, driven from a
-terminal, and it works offline. *(Page not yet written; for now the operator's runbook
-covers it under [Pair phones and wallets](../operators/pair-phones-and-wallets.md).)*
+terminal, and unlike the app today it can sign while the station is out of
+reach. See [Using a computer instead of a phone](using-a-computer.md).

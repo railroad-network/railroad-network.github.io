@@ -79,13 +79,19 @@ gen_cli "$STATION_BIN" "$OUT/cli/station.md" \
   echo "> plan: Phase 2 is now single-community resilience and Phase 3 is federation."
   echo "> ADRs 0001 to 0016 keep the old numbering as written."
   echo
-  echo "| ADR | Decision |"
-  echo "| --- | --- |"
+  echo "The **Status** column is the ADR's own status line. *Proposed* on a decision"
+  echo "that has shipped means the maintainer has not yet formally ratified it; the"
+  echo "code follows it regardless."
+  echo
+  echo "| ADR | Decision | Status |"
+  echo "| --- | --- | --- |"
   for f in "$STATION"/docs/adr/0*.md; do
     b="$(basename "$f")"
     num="${b%%-*}"
     title="$(head -1 "$f" | sed -E 's/^# *//; s/^[0-9]{4} *[—-] *//')"
-    echo "| [$num]($ADR_BASE/$b) | $title |"
+    status="$(awk '/^## Status/{f=1;next} f&&NF{print;exit}' "$f" | sed -E 's/ — .*//; s/ \(.*//')"
+    [[ "$num" == "0019" ]] && status="$status (superseded for delay-tolerant sync by ADR-0022)"
+    echo "| [$num]($ADR_BASE/$b) | $title | $status |"
   done
   echo
   echo "> **Generated page.** Built from \`docs/adr/\` in the \`station\` repo by"

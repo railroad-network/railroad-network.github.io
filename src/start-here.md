@@ -43,14 +43,17 @@ Then it settles. [More](members/pay-and-get-paid.md).
 a proposal, co-signed and voted on, recorded in the same history as payments.
 Disputes go to a jury of three drawn by lot. [More](organizers/how-decisions-get-made.md).
 
-**Offline is normal mode, running late.** Members keep signing when the
-station is unreachable. Their records travel later over whatever works and
-settle on arrival. [More](members/when-the-network-is-down.md).
+**Offline is normal mode, running late.** The station is the only thing that
+writes the history, but a member does not need to reach it to sign. Signed
+records travel later over whatever works and settle on arrival. Today that is
+what the command-line wallet does; the phone app still needs the station in
+reach to send. [More](members/when-the-network-is-down.md).
 
 ## What to read next
 
 - **Members:** [Install the app](members/install-the-app.md), then
-  [Join your community](members/join-your-community.md).
+  [Join your community](members/join-your-community.md). No Android phone?
+  [Using a computer instead of a phone](members/using-a-computer.md).
 - **Organizers:** [Start a community](organizers/start-a-community.md).
 - **Operators:** [Run a station](operators/run-a-station.md).
 - **Everyone:** the [Glossary](reference/glossary.md) when a word is new.

@@ -8,7 +8,8 @@ decisions are written down.
 - [rrn command reference](cli/rrn.md) and
   [station command reference](cli/station.md): the built-in help for every
   command, generated from the code.
-- Configuration *(page not yet written)*: every key in `config.toml` with its default.
+- [Configuration](configuration.md): every key in `config.toml` with its
+  default, the environment variables, and the data-directory layout.
 - [Architecture decision records](adrs.md): the locked-decision record, with
   links.
 - [Wire specifications](specs.md): QR payloads, bundles, SMS, the boot

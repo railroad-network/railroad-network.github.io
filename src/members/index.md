@@ -14,14 +14,17 @@ Here is what the app lets you do today, in the order you will meet it:
    and vouches. [Vouching and standing](vouching-and-standing.md).
 5. **Back up your identity** with a recovery circle and an export, so a lost
    phone need not be a lost identity. [Back up and recover your keys](keep-your-keys-safe.md).
-6. **Keep trading when the network is down**, and understand what a
-   headroom certificate is for. [When the network is down](when-the-network-is-down.md).
+6. **Know what happens when the network is down**, and what a headroom
+   certificate is for. Today the phone app waits for the station; the
+   command-line wallet keeps signing. [When the network is down](when-the-network-is-down.md).
 7. **Offer and find things** in the marketplace, agree a price, and pay for
    what you agreed. [The marketplace](the-marketplace.md).
 8. **Contest a payment** that went wrong, respond when someone contests
    yours, and serve on a jury when drawn. [Contest a payment](contest-a-payment.md).
 9. **Take part in governance**: read the Charter, co-sign and vote on
    proposals. See the organizers' section for how it works: [How decisions get made](../organizers/how-decisions-get-made.md).
+10. **Use a laptop instead of a phone** if you have no Android phone, with the
+    same identity model from a terminal. [Using a computer instead of a phone](using-a-computer.md).
 
 > **Do not use this with real value.** This is pilot software. Trade with play
 > stakes until an independent security audit says otherwise. See

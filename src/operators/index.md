@@ -25,20 +25,22 @@ pairing ceremony honest.**
    ceremony that is the actual security boundary.
 3. [Backups and key recovery](backups-and-key-recovery.md): the fifteen
    minutes that save the community.
-4. Encrypted at rest *(page not yet written)*: the seizure-resistant profile, Linux only.
-5. The courier desk *(page not yet written)*: ingesting paper, printing receipts and cards.
-6. Radio and text message *(page not yet written)*: LoRa bring-up and the SMS seam.
-7. Keeping phones in sync *(page not yet written)*: the per-vendor battery traps.
-8. Troubleshooting *(page not yet written)*.
+4. [Encrypted at rest](encrypted-at-rest.md): the seizure-resistant profile,
+   Linux only, and the boot ceremony it costs.
+5. [The courier desk](courier-desk.md): ingesting paper, printing receipts
+   and cards.
+6. [Radio and text message](radio-and-sms.md): the Reticulum sidecar, LoRa
+   bring-up, and where SMS stops today.
+7. [Keeping phones in sync](keeping-phones-in-sync.md): the per-vendor
+   battery traps and the ten-minute drill.
+8. [Troubleshooting](troubleshooting.md): symptom, cause, fix.
 
-Until those pages are written, the full operator runbooks live in the `station`
-repo and are complete:
-
-- [Setting up a Railroad Network community](https://github.com/railroad-network/station/blob/main/docs/community-setup.md):
-  the end-to-end runbook, including seizure resistance, paper, radio, and the
-  outage drill.
-- [Keeping phones in sync when the app is closed](https://github.com/railroad-network/station/blob/main/docs/background-reliability.md).
-- [Bringing up a LoRa radio link](https://github.com/railroad-network/station/blob/main/docs/lora-radio-bringup.md).
+The exact values every setting takes are in
+[Configuration](../reference/configuration.md). The source runbooks these
+pages are drawn from live in the `station` repo and go into more detail:
+[Setting up a Railroad Network community](https://github.com/railroad-network/station/blob/main/docs/community-setup.md),
+[Keeping phones in sync when the app is closed](https://github.com/railroad-network/station/blob/main/docs/background-reliability.md),
+and [Bringing up a LoRa radio link](https://github.com/railroad-network/station/blob/main/docs/lora-radio-bringup.md).
 
 ## Honest warnings
 
@@ -50,3 +52,7 @@ repo and are complete:
   signed end to end, so the transport needs no TLS. The security ceremony that
   matters is the pairing-code comparison. Take it seriously.
 - **Android only, sideloaded.** You hand members a signed installer file.
+- **The phone app is online-only for signing.** Members with the app need the
+  station reachable to send, confirm, vote, or contest. The offline outbox,
+  certificates, and paper export ship today in the command-line wallet; plan
+  your outage drill around laptops and paper.

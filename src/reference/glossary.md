@@ -17,6 +17,11 @@ message, or paper.
 whole number of centicommons; there are no fractions or floats anywhere in a
 signed record.
 
+**Ceremony fingerprint.** A short code derived from a recovery or boot
+request, shown on the requester's screen and on every holder's screen. Read
+aloud and matched between people before a holder contributes, because the
+request itself carries no proof of who is asking.
+
 **Charter.** A community's founding document: its id, principles, guaranteed
 rights, and founders, signed by the founders. Amendments chain to the version
 they replace.
@@ -70,8 +75,9 @@ tallies, and every other view are derived from it by replay.
 
 **Organizer.** A founder or steward of a community. Not a software role.
 
-**Outbox.** The queue of records a member has signed but which have not yet
-been delivered to the station.
+**Outbox.** The chained queue of records a member's device has signed but
+which have not yet been delivered to the station. Today the command-line
+wallet keeps one; the phone app does not.
 
 **Pairing.** The in-person ceremony by which a member's device and the
 station establish that they are talking to each other, by comparing an
@@ -84,9 +90,16 @@ tallied from the log.
 **Receipt.** The station's signed answer to a delivered record, saying whether
 it was admitted, was already known, or was refused and why.
 
+**Recovery circle.** The 3 to 7 members who each hold one sealed shard of a
+member's key; any three rebuild it on a new device.
+
 **Replica.** An optional second station that pulls the writer's log for audit
 or off-site backup. Admits nothing, so it can never fork the community. Not a
 failover.
+
+**Sealed envelope.** The per-message encryption and signature between a
+member's device and the station, so the plain-HTTP transport needs no TLS
+and the pairing-code comparison is the only trust step.
 
 **Settlement window.** The delay between a payment being confirmed and the
 balances moving: 24 hours for Tier 1, 48 hours for Tier 2. Doubles as the
@@ -120,6 +133,10 @@ process. May not contradict the Charter.
 **Tier.** A payment's size class, which sets its settlement window and what
 the confirmer must stake. Tier 1 and Tier 2 are served today; Tier 3 (50
 Commons and up) is refused rather than shrunk.
+
+**Volume master key.** The key of the encrypted at-rest container, split
+among member holders and never written to disk; rebuilt at every boot by the
+unlock ceremony.
 
 **Vouch.** A signed attestation by one member that another member's key
 belongs to a real, known person. Carries a stake; feeds standing and identity
