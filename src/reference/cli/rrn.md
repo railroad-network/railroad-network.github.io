@@ -43,11 +43,11 @@ Commands:
   contracts           Show the service contracts you are a party to
   show-contract       Show one service contract in full
   terminate-contract  End one of your service contracts early
-  governance          Community governance: the Charter, proposals, voting, and statutes (M1.9)
-  dispute             Disputes: contest a confirmed payment, respond, rule as a juror, resolve (M1.10)
-  cert                Offline spending certificates: reserve debt-floor headroom before a partition, and list your outstanding certificates (M2.3, ADR-0021)
-  paper               Paper fallback: export payloads to printable QR sheets and ingest scanned QR text (M2.5, ADR-0020 §3 / ADR-0021 §4). The CLI consumes scanned QR *text* — one payload string per line, from any scanner app — it does not read camera images. A member exporting their *own* signed records prints them with `rrn wallet export` (ADR-0028); these tools are the courier's
-  dtn                 Delay-tolerant networking: originate an outbound bundle push to a peer over the Reticulum transport, inspect tracked pushes, and publish this station's own reachability binding (M2.6, ADR-0013/0020)
+  governance          Community governance: the Charter, proposals, voting, and statutes (ADR-0012)
+  dispute             Disputes: contest a confirmed payment, respond, rule as a juror, resolve (ADR-0014)
+  cert                Offline spending certificates: reserve debt-floor headroom before a partition, and list your outstanding certificates (ADR-0021)
+  paper               Paper fallback: export payloads to printable QR sheets and ingest scanned QR text (ADR-0020 §3 / ADR-0021 §4). The CLI consumes scanned QR *text* — one payload string per line, from any scanner app — it does not read camera images. A member exporting their *own* signed records prints them with `rrn wallet export` (ADR-0028); these tools are the courier's
+  dtn                 Delay-tolerant networking: originate an outbound bundle push to a peer over the Reticulum transport, inspect tracked pushes, and publish this station's own reachability binding (ADR-0013, ADR-0020)
   wallet              The self-custody member wallet (ADR-0028): hold your own key on a computer with no phone, sign payments offline into a durable outbox, carry them on paper or a DTN bundle, and pair/sync over the sealed channel when online
   help                Print this message or the help of the given subcommand(s)
 
@@ -1283,7 +1283,7 @@ Options:
 ### `rrn governance`
 
 ```text
-Community governance: the Charter, proposals, voting, and statutes (M1.9)
+Community governance: the Charter, proposals, voting, and statutes (ADR-0012)
 
 Usage: rrn governance [OPTIONS] <COMMAND>
 
@@ -1984,7 +1984,7 @@ Options:
 ### `rrn dispute`
 
 ```text
-Disputes: contest a confirmed payment, respond, rule as a juror, resolve (M1.10)
+Disputes: contest a confirmed payment, respond, rule as a juror, resolve (ADR-0014)
 
 Usage: rrn dispute [OPTIONS] <COMMAND>
 
@@ -2376,7 +2376,7 @@ Options:
 ### `rrn cert`
 
 ```text
-Offline spending certificates: reserve debt-floor headroom before a partition, and list your outstanding certificates (M2.3, ADR-0021)
+Offline spending certificates: reserve debt-floor headroom before a partition, and list your outstanding certificates (ADR-0021)
 
 Usage: rrn cert [OPTIONS] <COMMAND>
 
@@ -2488,7 +2488,7 @@ Options:
 ### `rrn paper`
 
 ```text
-Paper fallback: export payloads to printable QR sheets and ingest scanned QR text (M2.5, ADR-0020 §3 / ADR-0021 §4). The CLI consumes scanned QR *text* — one payload string per line, from any scanner app — it does not read camera images. A member exporting their *own* signed records prints them with `rrn wallet export` (ADR-0028); these tools are the courier's
+Paper fallback: export payloads to printable QR sheets and ingest scanned QR text (ADR-0020 §3 / ADR-0021 §4). The CLI consumes scanned QR *text* — one payload string per line, from any scanner app — it does not read camera images. A member exporting their *own* signed records prints them with `rrn wallet export` (ADR-0028); these tools are the courier's
 
 Usage: rrn paper [OPTIONS] <COMMAND>
 
@@ -2770,7 +2770,7 @@ Options:
 ### `rrn dtn`
 
 ```text
-Delay-tolerant networking: originate an outbound bundle push to a peer over the Reticulum transport, inspect tracked pushes, and publish this station's own reachability binding (M2.6, ADR-0013/0020)
+Delay-tolerant networking: originate an outbound bundle push to a peer over the Reticulum transport, inspect tracked pushes, and publish this station's own reachability binding (ADR-0013, ADR-0020)
 
 Usage: rrn dtn [OPTIONS] <COMMAND>
 
@@ -2923,6 +2923,7 @@ Usage: rrn wallet [OPTIONS] <COMMAND>
 
 Commands:
   init          Create a new member wallet (or restore a backed-up one) pinned to a station
+  recover       Rebuild a lost key from your recovery circle, into a fresh wallet home
   pair          Pair with the station over the sealed channel; prints the SAS for the operator to confirm
   sync          Re-anchor and sync: nonce, outbox head, balance, and delivery receipts
   status        Show local wallet state — never unlocks the key
@@ -3002,6 +3003,50 @@ Options:
           - always: Colorize, whatever stdout is attached to
           
           [default: never]
+
+  -h, --help
+          Print help (see a summary with '-h')
+```
+
+#### `rrn wallet recover`
+
+```text
+Rebuild a lost key from your recovery circle, into a fresh wallet home.
+
+Runs the reconstruction ceremony on *this* device: prints a request QR and a fingerprint for your holders to confirm, gathers their responses, and rebuilds your key locally — nothing touches the station (ADR-0006). The recovered wallet is treated as restored: it refuses signing until one `sync` re-anchors it (ADR-0028).
+
+Usage: rrn wallet recover [OPTIONS] --station <STATION>
+
+Options:
+      --socket <SOCKET>
+          Path to the station's Unix socket
+
+      --station <STATION>
+          The station's `rrn1…` address to pin (as for `init`)
+
+      --address <ADDRESS>
+          The `rrn1…` address being recovered. Prompted for if omitted (read it off your old credential card or a friend's contact list)
+
+      --format <FORMAT>
+          Output format
+
+          Possible values:
+          - text: Terse, human/grep-friendly lines
+          - json: One-line JSON for piping
+          
+          [default: text]
+
+      --color <COLOR>
+          Colorize text output. Off unless asked for
+
+          Possible values:
+          - never:  No escape codes, ever
+          - always: Colorize, whatever stdout is attached to
+          
+          [default: never]
+
+      --force
+          Overwrite an existing wallet home
 
   -h, --help
           Print help (see a summary with '-h')

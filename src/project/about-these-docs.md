@@ -38,9 +38,16 @@ Four sections by **audience**, not by component:
 - **Reference**: exact commands, the glossary, and pointers to the decision
   records.
 
-A page that is not yet written appears in the sidebar greyed out with no link; every feature the sidebar names is built, only the page is missing. To add it,
-write the file and replace the empty `[Title]()` entry in `SUMMARY.md` with a
-real path.
+Every page in the sidebar is written. If a future page is planned before it
+is written, add it to `SUMMARY.md` as a draft entry, `[Title]()`, and the
+sidebar shows it greyed out with no link; replace the empty parentheses with
+the real path when the file exists.
+
+Two pages are hand-maintained mirrors of the code rather than generated:
+[Configuration](../reference/configuration.md) follows the station's config
+source, and the operator pages follow the runbooks in the `station` repo.
+When a runbook changes, the page that draws on it changes in the same pull
+request or the next.
 
 ## Writing conventions
 
@@ -58,3 +65,7 @@ real path.
   behavior. Tickets are ephemeral; the docs must stand on their own.
 - **The warning stays.** "Do not use with real value" appears on the welcome
   page and each section's overview until an independent audit says otherwise.
+- **Say what ships, not what is designed.** Where the phone app lags the
+  station (today: offline signing, certificates, paper export), the page says
+  so in a callout and points to the command-line wallet. The
+  [status page](status.md) is the one list of gaps; keep it current.

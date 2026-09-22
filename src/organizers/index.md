@@ -25,7 +25,7 @@ that is slow, visible, and reversible.
 5. **Know the emergency lever cold**, because it is the sharpest capture lever
    in the system. [Emergencies](emergencies.md).
 6. **Practise the outage.** Once a season, run the community with the network
-   off. *(Page not yet written; the operator's runbook has a facilitator's guide.)*
+   off. [Running an outage drill](outage-drill.md).
 
 ## Organizer and operator
 

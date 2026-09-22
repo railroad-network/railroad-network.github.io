@@ -43,8 +43,9 @@ station unpair <rrn1-addr>    # revoke a lost or departed member's phone
 ## A computer instead of a phone
 
 A member with a laptop and no Android phone can hold their own key with the
-built-in `rrn wallet`. Same identity model, driven from a terminal, works
-offline.
+built-in `rrn wallet`. Same identity model, driven from a terminal, and unlike
+the app today it works offline. The member's side of this is
+[Using a computer instead of a phone](../members/using-a-computer.md).
 
 **They learn the station's address from you, in person.** The wallet pins
 that address, and every station-signed thing it later accepts is checked
@@ -75,9 +76,10 @@ signing again, so their chain cannot fork.
 
 ## After pairing
 
-Nudge every member through two things in the first week: **Export wallet**
-(Settings), and the recovery circle once there are a few members to hand
-shards to. Today only the export can actually restore a member's key; see
+Nudge every member through two things in the first week: the recovery circle
+once there are a few members to hand shards to, and **Export wallet**
+(Settings). Either one rebuilds a member's key on a new phone; see
 [Back up and recover your keys](../members/keep-your-keys-safe.md). A lost
 phone without either is a lost identity, and helping members avoid that is
-operator work too.
+operator work too. Then walk the phone through
+[Keeping phones in sync](keeping-phones-in-sync.md) before the member leaves.

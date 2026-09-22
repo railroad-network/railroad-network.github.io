@@ -7,10 +7,10 @@ step, what the app gives you instead: a passphrase, a **recovery circle** of
 friends who each hold a sealed piece of your key, and an export you can carry
 to another device.
 
-> **Read the section [What can be rebuilt today](#what-can-be-rebuilt-today)
-> before you rely on any of this.** Setting up a circle is fully built and
-> worth doing now. The step that rebuilds a *phone's* key from the circle is
-> not shipped yet. The export is the backup that works end to end today.
+> **Both backups work end to end.** A recovery circle rebuilds your key on a
+> new phone or laptop from your holders; an export restores it from a file you
+> kept. Set up the circle in your first weeks and do the export too. Neither
+> can be set up *after* the phone is gone.
 
 ## What you are protecting
 
@@ -134,48 +134,79 @@ passphrase. Holding one for someone is safe.
 ## Walkthrough: help someone recover
 
 When someone whose shard you hold runs a recovery ceremony, they will ask you
-to contribute your piece. The ceremony is driven from a station console,
-which shows a **request QR**.
+to contribute your piece. The ceremony runs on the requester's own device: a
+member's new phone or laptop, or the station console for the station's key or
+its encrypted volume. Whichever it is, it shows a **request QR** and a
+**ceremony fingerprint**.
 
 1. Open Settings → Shards you hold → **Help someone recover**.
 2. **Scan the request** the station is showing. The app checks that you
    actually hold a piece for the identity the request names; if not, it says
    so and stops.
-3. **Confirm.** The app shows the address being recovered. **Check with the
-   person in front of you that it is theirs.** The request itself carries no
-   proof of who is asking, which is why this step happens face to face and
-   not over a photo someone sent you.
+3. **Confirm.** The app shows the address being recovered and the **ceremony
+   fingerprint**. **Read the fingerprint aloud and check it matches the one on
+   the requester's screen.** The request itself carries no proof of who is
+   asking; the matching fingerprint, between people who know each other, is
+   that proof. A mismatch means someone else is running a ceremony with this
+   address: stop.
 4. **Enter your passphrase.** Your phone opens your sealed piece and re-seals
    it to this one ceremony.
 5. **Show this to your friend.** The app displays a **response QR**. The
    person running the ceremony scans it. The response is useless to anyone
    else and for any other ceremony, so if you truly cannot attend, it is
-   acceptable to relay the response over a chat, provided you trust that the
-   request reached you intact.
+   acceptable to relay the response over a chat, provided you have confirmed
+   the fingerprint with the requester by voice first.
 
-## What can be rebuilt today
+## Walkthrough: rebuild your key on a new phone
 
-Here is the honest state of the rebuild step, which is the whole point of a
-backup.
+Your phone is gone. You have a new one, the app installed, and at least three
+of your holders reachable, with their phones. Reconstruction happens
+**entirely on your new device**; the station never sees your key and cannot
+help or hinder.
 
-**The station's key: yes, fully.** The operator arms the station's own
-recovery with a circle of members exactly as above, and the ceremony in
-[Backups and key recovery](../operators/backups-and-key-recovery.md) collects
-holders' responses at the station console and rebuilds the key, even when the
-passphrase is gone. This is built, tested, and drilled.
+1. **Tell the operator first** if the old phone was stolen rather than lost.
+   They unpair it so a thief cannot keep syncing under your name. Do this
+   before step 2.
+2. On the new phone, at the welcome screen, tap **Recover an existing
+   identity**, then **From my recovery circle**.
+3. **Type your address**, the `rrn1…` string. Read it off your credential
+   card, a friend's contact list, or the community list on someone else's
+   phone. The app checks it is an address.
+4. The app mints a fresh ceremony and shows a **request QR** and, under it, a
+   short **ceremony fingerprint** in large type. Every holder must see this
+   same fingerprint.
+5. **Each holder, in person:** opens Settings → Shards you hold → **Help
+   someone recover**, scans your request, and their phone shows the address
+   being recovered and the same fingerprint. **They read the fingerprint
+   aloud and you confirm it matches yours.** If it does not, stop: someone
+   else is running a ceremony with your address. They enter their passphrase
+   and their phone shows a **response QR**.
+6. **Scan each response.** The app counts pieces gathered. A response from a
+   different ceremony or a stale circle is rejected with an explanation. If
+   you have a piece from everyone and it still will not rebuild, one holder
+   has a shard from an older split; start over with a fresh request.
+7. When three responses are in, your key is rebuilt. Choose a **new
+   passphrase**, optionally set up fingerprint or face unlock, and
+   **re-pair** with the station as on your first day. Your address, balance,
+   standing, and history are exactly as they were.
 
-**A member's phone key: not yet.** The app can split your key, holders can
-hold pieces, and holders can answer a request. What does not exist is the
-screen that *makes* the request for a member and gathers the responses on a
-new phone. There is no "recover" option when you install the app, and the
-station's ceremony can only target the station's own key. The project's own
-records say this plainly and it is on the list. Until it lands:
+Leaving the screen part way discards the gathered pieces, and your holders
+would have to scan a fresh request; finish in one sitting.
 
-- **Set up your circle anyway.** The shards you hand out now are the ones
-  the rebuild flow will use. Doing it later means doing it after you have
-  lost the phone, which is too late.
-- **Also do the export below.** It is the backup that works end to end
-  today.
+> **Why the fingerprint.** A recovery request carries no proof of who is
+> asking. The fingerprint, read aloud between people who know each other, is
+> that proof. A holder who skips it can be tricked into helping a stranger
+> rebuild your key. The design is in
+> [ADR-0016](https://github.com/railroad-network/station/blob/main/docs/adr/0016-station-backup-and-key-recovery.md).
+
+**On a laptop instead:** `rrn wallet recover --station <station> --address <yours>`
+runs the same ceremony from a terminal, printing the request QR and the
+fingerprint and reading the pasted responses. See
+[Using a computer instead of a phone](using-a-computer.md).
+
+**The station's own key** is protected the same way, with members as
+holders; the operator's side is
+[Backups and key recovery](../operators/backups-and-key-recovery.md).
 
 ## Walkthrough: export your wallet
 
@@ -200,8 +231,11 @@ only to the old one.
 
 ### Restoring from an export
 
-Today the restore target is the **command-line wallet** on a computer. The
-app has no import screen yet.
+**On a new phone:** at the welcome screen tap **Recover an existing
+identity**, then **From an exported wallet**, paste the exported text, enter
+the export's passphrase, then choose a new device passphrase and re-pair.
+
+**On a laptop**, into the command-line wallet:
 
 ```sh
 # 1. Turn the exported text back into the wallet file.
@@ -218,7 +252,8 @@ rrn wallet sync
 
 The re-anchor step is not optional. A restored wallet does not know how far
 its own history got, and signing before it finds out would look to the
-station like a forked identity, which costs your whole standing.
+station like a forked identity, which costs your whole standing. The app does
+the same on its first sync after a restore.
 
 > **Rehearse this once**, on a laptop, while your phone still works. A backup
 > you have never restored is a hope, not a plan.
@@ -228,12 +263,10 @@ station like a forked identity, which costs your whole standing.
 1. **Tell the operator.** They **unpair** the old phone so it can no longer
    sync. The key on it is still encrypted under your passphrase; a thief
    needs that to use it.
-2. **If you have an export**, restore it into the command-line wallet as
-   above, sync, and carry on. You can pair a new phone later as a fresh
-   identity if you prefer, but that identity starts from zero.
-3. **If you only have a circle**, your shards are safe with your holders and
-   the rebuild flow is what will use them. Do not re-create a wallet on a new
-   phone under the assumption you can merge later; you cannot.
+2. **Rebuild on a new phone** from your circle or your export, as above,
+   then re-pair. Your identity carries over intact.
+3. **Do not create a fresh wallet** on the new phone hoping to merge later;
+   you cannot. A fresh wallet is a new identity starting from zero.
 
 ## Housekeeping that matters
 
@@ -251,6 +284,7 @@ backup of the key alone loses the chain. Full-disk encryption on the laptop
 is your responsibility. After restoring from a backup, reach the station once
 and run `rrn wallet sync` before you sign again.
 
-The command-line wallet has no recovery circle of its own yet; that surface
-is deferred in
+The command-line wallet can *rebuild* from a circle (`rrn wallet recover`)
+but cannot yet *set one up*; you split your key from the phone app. That
+surface is deferred in
 [ADR-0028](https://github.com/railroad-network/station/blob/main/docs/adr/0028-non-mobile-member-wallet.md).

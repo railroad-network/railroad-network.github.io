@@ -15,7 +15,7 @@
 - [When the network is down](members/when-the-network-is-down.md)
 - [The marketplace](members/the-marketplace.md)
 - [Contest a payment](members/contest-a-payment.md)
-- [Using a computer instead of a phone]()
+- [Using a computer instead of a phone](members/using-a-computer.md)
 
 # For organizers
 
@@ -24,7 +24,7 @@
 - [How decisions get made](organizers/how-decisions-get-made.md)
 - [Disputes](organizers/disputes.md)
 - [Emergencies](organizers/emergencies.md)
-- [Running an outage drill]()
+- [Running an outage drill](organizers/outage-drill.md)
 
 # For operators
 
@@ -32,11 +32,11 @@
 - [Run a station](operators/run-a-station.md)
 - [Pair phones and wallets](operators/pair-phones-and-wallets.md)
 - [Backups and key recovery](operators/backups-and-key-recovery.md)
-- [Encrypted at rest]()
-- [The courier desk]()
-- [Radio and text message]()
-- [Keeping phones in sync]()
-- [Troubleshooting]()
+- [Encrypted at rest](operators/encrypted-at-rest.md)
+- [The courier desk](operators/courier-desk.md)
+- [Radio and text message](operators/radio-and-sms.md)
+- [Keeping phones in sync](operators/keeping-phones-in-sync.md)
+- [Troubleshooting](operators/troubleshooting.md)
 
 # Reference
 
@@ -44,7 +44,7 @@
 - [Glossary](reference/glossary.md)
 - [rrn command reference](reference/cli/rrn.md)
 - [station command reference](reference/cli/station.md)
-- [Configuration]()
+- [Configuration](reference/configuration.md)
 - [Architecture decision records](reference/adrs.md)
 - [Wire specifications](reference/specs.md)
 

@@ -39,6 +39,14 @@ Some limitations worth knowing as a user:
   surveillance pressure should prefer paper for sensitive traffic.
 - **Offline double-spending cannot be prevented, only priced.** See
   [When the network is down](../members/when-the-network-is-down.md).
+- **Nothing rate-limits a paired member.** Every input is size-bounded, but
+  no surface limits how often one identity may call it. At pilot scale the
+  pairing gate is the accepted bound.
+- **The encrypted at-rest profile defends a powered-off station only.** A
+  station seized while running has its keys in memory. See
+  [Encrypted at rest](../operators/encrypted-at-rest.md).
+- **A read replica is a copy of the history, not a second source of
+  balances.** Its derived views are empty by design, loudly.
 
 ## Reporting a vulnerability
 

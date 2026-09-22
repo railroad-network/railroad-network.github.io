@@ -11,7 +11,9 @@ are is a key on your own phone, backed by people who **vouch** for you, not by
 an account on someone's server. Rules are written in a **Charter** the founders
 sign, changed by votes, and enforced by juries drawn by lot. When the network
 is gone, payments travel by radio, by text message, or on a printed sheet in
-someone's pocket, and settle when they arrive.
+someone's pocket, and settle when they arrive. (Today that last part works
+from the command-line wallet; the phone app still needs the station in reach.
+[Status and roadmap](project/status.md) keeps the honest list.)
 
 The name is a nod to the Underground Railroad: a network of trusted people,
 under hostile conditions, with no central authority, whose real strength was

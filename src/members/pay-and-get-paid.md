@@ -47,9 +47,10 @@ Your balance screen shows two numbers: what has **settled**, and what is
 delivered to the station). Pending amounts already count against your debt
 floor, so you cannot spend the same headroom twice.
 
-If you signed a payment while out of range of the station, it stays pending
-until it gets there, whether over Wi-Fi later, via another member's phone, or
-on paper. See [When the network is down](when-the-network-is-down.md).
+In the app, a payment that cannot reach the station is not sent at all: the
+app tells you and you try again when connected. The command-line wallet keeps
+a signed payment pending until it reaches the station, over Wi-Fi later or on
+paper. See [When the network is down](when-the-network-is-down.md).
 
 ## Good habits
 
