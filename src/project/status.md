@@ -59,6 +59,10 @@ Railroad Network is built in phases, each meant to be useful on its own.
 - **No per-member rate limiting** on any surface, accepted at pilot scale
   behind the pairing gate.
 - **No independent audit.** See [Security and audits](security.md).
+- **English only.** The app, this site, and the command-line tools ship in
+  English. How they will be translated is decided (the station sends codes,
+  each app renders them in its own language; nothing signed ever carries
+  translated text — ADR-0037), but no translation has been built yet.
 
 ## The pilot
 
