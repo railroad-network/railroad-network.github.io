@@ -515,7 +515,7 @@ Arguments:
 
 Options:
       --price <PRICE>
-          Price in Commons, e.g. `3`, `3.5`, or `3.50`. Only a `commons` listing may be negative (a subsidy), written as `-3.50`
+          Price in Commons, e.g. `3`, `3.5`, or `3.50`. Only a `commons` listing may be negative (a subsidy), written as `-3.50`. With `--every` and without `--negotiable`: 0.01 to 49.99
 
       --socket <SOCKET>
           Path to the station's Unix socket
@@ -573,13 +573,13 @@ Options:
           [possible values: daily, weekly, monthly]
 
       --periods <PERIODS>
-          How many periods a recurring commitment runs for (required with `--every`)
+          How many periods a recurring commitment runs for (required with `--every`; 1 to 366)
 
       --notice <NOTICE>
-          Days of notice to end a recurring contract early
+          Days of notice to end a recurring contract early (at most 366)
 
       --penalty <PENALTY>
-          Early-termination penalty in Commons, charged to whoever ends a recurring contract before its natural end
+          Early-termination penalty in Commons, charged to whoever ends a recurring contract before its natural end (at most 49.99)
 
   -h, --help
           Print help (see a summary with '-h')
