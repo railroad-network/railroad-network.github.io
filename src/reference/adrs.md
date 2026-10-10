@@ -53,6 +53,7 @@ code follows it regardless.
 | [0035](https://github.com/railroad-network/station/blob/main/docs/adr/0035-writer-succession-and-lineage-pinning.md) | Writer succession and lineage-aware signer pinning | Accepted |
 | [0036](https://github.com/railroad-network/station/blob/main/docs/adr/0036-predictive-matching-v0.md) | Predictive matching, version 0 | Accepted |
 | [0037](https://github.com/railroad-network/station/blob/main/docs/adr/0037-localization-codes-on-the-wire-readers-translate.md) | Localization: the wire carries codes, readers translate | Accepted |
+| [0038](https://github.com/railroad-network/station/blob/main/docs/adr/0038-enrollment-and-standing-accrual.md) | Enrollment: who may go into debt and whose activity earns standing | Accepted |
 
 > **Generated page.** Built from `docs/adr/` in the `station` repo by
 > `scripts/gen-reference.sh`.
