@@ -19,7 +19,8 @@ Commands:
   peers             Inspect the static peer configuration
   pair-mobile       Confirm a mobile's pairing request (ADR-0008). With no address, lists the pending requests and their confirmation codes; pass an address to confirm it after comparing the code with the mobile's screen in person
   list-mobiles      List the mobiles currently paired with this station
-  unpair            Revoke a mobile's pairing by its bech32 address
+  unpair            Revoke a mobile's pairing by its bech32 address. The member stays enrolled; use `station enroll --revoke` to end its credit
+  enroll            Enroll a member who never pairs — paper-first or radio-only — after the same in-person check as pairing (ADR-0038). Only an enrolled member may go into debt; any other key can spend only what it holds. Pairing a phone enrolls it automatically
   backup            Write an encrypted backup of this station (wallet + ledger + config)
   restore           Restore a station from an encrypted backup archive into the data dir
   recovery          Manage key recovery: split the station key across trusted holders so a threshold of them can restore it after a lost passphrase (ADR-0016)
@@ -117,7 +118,7 @@ Options:
 ### `station unpair`
 
 ```text
-Revoke a mobile's pairing by its bech32 address
+Revoke a mobile's pairing by its bech32 address. The member stays enrolled; use `station enroll --revoke` to end its credit
 
 Usage: station unpair [OPTIONS] <ADDRESS>
 
@@ -126,6 +127,23 @@ Arguments:
 
 Options:
       --data-dir <DATA_DIR>  Data directory (wallet, database, socket, config)
+  -h, --help                 Print help
+```
+
+### `station enroll`
+
+```text
+Enroll a member who never pairs — paper-first or radio-only — after the same in-person check as pairing (ADR-0038). Only an enrolled member may go into debt; any other key can spend only what it holds. Pairing a phone enrolls it automatically
+
+Usage: station enroll [OPTIONS] <ADDRESS|--list>
+
+Arguments:
+  [ADDRESS]  The member's bech32 address
+
+Options:
+      --data-dir <DATA_DIR>  Data directory (wallet, database, socket, config)
+      --revoke               Revoke the member's enrollment instead: from now on it can spend only what it holds. Its outstanding certificates are still honored
+      --list                 List the enrolled members, with the basis and log position of each
   -h, --help                 Print help
 ```
 
