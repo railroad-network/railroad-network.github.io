@@ -2936,6 +2936,7 @@ Commands:
   export        Export pending outbox entries as QR sheets or a raw bundle (offline path)
   submit        Submit pending entries online: bundle → channel → apply receipts
   receipts      Delivery receipts
+  abandon       Stop carrying a pending record that can never succeed — e.g. a second confirmation of a payment already confirmed — so it no longer holds up the outbox. Not a revocation: a copy already carried can still be admitted. A record the station never received leaves its chain position empty there for good, which `sync` reports. A proposal cannot be abandoned. Local only: no passphrase, no station
   show          Show local outbox rows and their dispositions
   transactions  Your transactions, read live from the station over the channel
   help          Print this message or the help of the given subcommand(s)
@@ -3518,6 +3519,43 @@ Usage: rrn wallet receipts [OPTIONS] <COMMAND>
 Commands:
   apply  Apply station-signed receipts from scanned QR text or raw bytes
   help   Print this message or the help of the given subcommand(s)
+
+Options:
+      --socket <SOCKET>
+          Path to the station's Unix socket
+
+      --format <FORMAT>
+          Output format
+
+          Possible values:
+          - text: Terse, human/grep-friendly lines
+          - json: One-line JSON for piping
+          
+          [default: text]
+
+      --color <COLOR>
+          Colorize text output. Off unless asked for
+
+          Possible values:
+          - never:  No escape codes, ever
+          - always: Colorize, whatever stdout is attached to
+          
+          [default: never]
+
+  -h, --help
+          Print help (see a summary with '-h')
+```
+
+#### `rrn wallet abandon`
+
+```text
+Stop carrying a pending record that can never succeed — e.g. a second confirmation of a payment already confirmed — so it no longer holds up the outbox. Not a revocation: a copy already carried can still be admitted. A record the station never received leaves its chain position empty there for good, which `sync` reports. A proposal cannot be abandoned. Local only: no passphrase, no station
+
+Usage: rrn wallet abandon [OPTIONS] <RECORD_HASH>
+
+Arguments:
+  <RECORD_HASH>
+          The record hash (hex), or a unique prefix of at least 8 hex characters, as `rrn wallet show` prints it
 
 Options:
       --socket <SOCKET>
