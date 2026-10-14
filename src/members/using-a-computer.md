@@ -81,9 +81,10 @@ channel. Be on the station's network and next to the operator:
 rrn wallet pair --url 192.168.4.1:7500     # the station's address and port, from the operator
 ```
 
-The wallet prints an **8-character code**. The operator sees a code beside your
-address in their list of pending requests. Compare them aloud. If they match,
-the operator confirms your address and the wallet is paired. If they do not
+The wallet prints a **10-character code** (`code: XXXXX-XXXXX`), new every
+time you pair. The operator sees a code beside your address in their list of
+pending requests. Compare them aloud. If they match, the operator types your
+code to confirm and the wallet is paired. If they do not
 match, stop: something on the network answered in the station's place.
 
 Then:

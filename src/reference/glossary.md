@@ -80,8 +80,9 @@ which have not yet been delivered to the station. Today the command-line
 wallet keeps one; the phone app does not.
 
 **Pairing.** The in-person ceremony by which a member's device and the
-station establish that they are talking to each other, by comparing an
-8-character code aloud. The security boundary of the transport.
+station establish that they are talking to each other, by comparing a
+10-character code aloud; the operator then types the device's code to confirm.
+The code is new for every pairing. The security boundary of the transport.
 
 **Proposal.** A signed motion to the electorate: an ordinary statute, a
 Charter amendment, or an emergency measure. Co-signed, then voted on, then

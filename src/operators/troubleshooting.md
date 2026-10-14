@@ -28,6 +28,9 @@ version, `degraded` with a reason, or `restarting`.
 | Pairing codes do not match | Something else answered in the station's place. | **Do not pair.** Identify the machine that owns that IP before pairing anyone. |
 | The app says the station "couldn't be verified" | Same as above: the endpoint cannot prove it holds the station key. | Refuse. |
 | `station pair-mobile` lists nothing | The phone has not sent its request yet, or sent it to a different machine. | Have the member tap Join again while you watch. |
+| | The request is more than 5 minutes old and expired, or the device has not finished the handshake yet. | Have the member pair again. Each attempt shows a new code. |
+| The phone says "pairing protocol v1 is retired; update the app" | The phone app predates the current pairing handshake. No updated app has shipped yet. | Pair the member with [a computer](pair-phones-and-wallets.md#a-computer-instead-of-a-phone) for now. Phones paired earlier keep working. |
+| `station pair-mobile` says "the code does not match the pending request" | A typo, the wrong address, or the code is from an older attempt. | Read the code off the device again and retype it. If it still does not match, treat it like codes that do not match: **do not pair.** |
 | A wallet on a laptop refuses a receipt or a pairing reply | The address pinned at `rrn wallet init` is not this station's. | Compare `rrn whoami` with what the member typed. A wrong pin means a fresh `init`. |
 
 See [Pair phones and wallets](pair-phones-and-wallets.md).
