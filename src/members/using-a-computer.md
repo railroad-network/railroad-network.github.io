@@ -228,10 +228,13 @@ rebuild the key on a laptop. Gather at least three of your holders in person:
 rrn wallet recover --station rrn1<the-station-address> --address rrn1<your-old-address>
 ```
 
-The command prints a **request QR** and a short **ceremony fingerprint**. Read
-the fingerprint aloud; each holder must see the same one on their screen before
-they answer, which is what stops someone with a stolen request from tricking
-your holders. Each holder scans the request in the app under **Shards you hold
+The command prints a **request QR** and a 16-character **ceremony
+fingerprint** (`XXXX-XXXX-XXXX-XXXX`). Read all four groups aloud; each holder
+must see the same code on their screen before they answer, which is what stops
+someone with a stolen request from tricking your holders. (Until the phone app's
+next update, October 2026, holders' phones show an older, shorter code that
+will not match, so a holder cannot yet confirm a laptop ceremony; see
+[Keep your keys safe](keep-your-keys-safe.md).) Each holder scans the request in the app under **Shards you hold
 → Help someone recover** and shows you a response QR; paste each response line
 into the waiting command. When enough are in, the key is rebuilt on your
 machine. Nothing touches the station.

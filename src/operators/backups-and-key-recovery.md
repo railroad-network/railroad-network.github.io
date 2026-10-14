@@ -83,6 +83,12 @@ station recovery status              # the current roster
 station recovery show-shard <addr>   # re-display one holder's QR
 ```
 
+> **Phone holders cannot confirm the fingerprint yet (October 2026).** The
+> station shows the new 16-character code and the phone app still shows an
+> older, shorter one, so a holder following the rule must decline until the
+> app is updated, and there is no update to install yet. Keep your passphrase
+> safe in the meantime.
+
 **Use it** the day the passphrase is gone. Gather a threshold of holders in
 one room:
 
@@ -91,10 +97,11 @@ station recovery restore                          # passphrase lost, data dir in
 station recovery restore --from-backup <archive>  # machine AND passphrase lost
 ```
 
-The command prints a **request QR**. Each holder opens **Shards you hold →
+The command prints a **request QR** and a 16-character **ceremony
+fingerprint** (`XXXX-XXXX-XXXX-XXXX`). Each holder opens **Shards you hold →
 Help someone recover**, scans it, checks the station address shown is really
-yours, unlocks with their own passphrase, and their phone shows a **response
-QR**. Scan each response and paste the `rrnrecover-resp:…` lines into the
+yours and that all four groups of the fingerprint match yours, unlocks with
+their own passphrase, and their phone shows a **response QR**. Scan each response and paste the `rrnrecover-resp:…` lines into the
 waiting command. With enough responses in, you choose a new passphrase and
 the station is yours again. **Take a fresh backup immediately**: the old
 archives still answer only to the old key wrapping.

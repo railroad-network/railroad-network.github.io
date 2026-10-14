@@ -130,20 +130,30 @@ help.
 
 ```sh
 station status          # "state volume: LOCKED (not mounted)"
-station unlock          # prints a request QR and a short console fingerprint
+station unlock          # prints a request QR and a 16-character fingerprint
 station run             # once the volume is mounted, the daemon starts normally
 ```
 
+> **Phone holders cannot confirm the code yet (October 2026).** The
+> fingerprint was lengthened and made the same on every screen. The console
+> shows the new 16-character code, and the phone app still shows an older,
+> shorter one, so the two never match, and a holder following the rule must
+> decline. There is no app update to install yet. Until there is, a quorum of
+> phone holders cannot safely run this ceremony: keep the station on a UPS so
+> a power cut does not lock it. The steps below describe the app once it is
+> updated.
+
 The ceremony, step by step:
 
-1. `station unlock` shows a **request QR** and a **console fingerprint**, two
-   groups of five letters such as `B523J-DY6LH`.
-2. **Read the fingerprint aloud** to each holder, or send it over a channel you
-   both trust.
+1. `station unlock` shows a **request QR** and a **ceremony fingerprint**,
+   sixteen characters in four groups, such as `E26N-ZE0W-1TX8-Z4KF`.
+2. **Read all four groups aloud** to each holder, in person or over a voice
+   call. Never send the code in a message alongside the request: whoever could
+   swap the request could swap the code too.
 3. Each holder opens Settings → Shards you hold → **Help someone recover**,
    scans the request, and compares the fingerprint their phone shows with the
-   one you read. **Only if they match** do they enter their passphrase and
-   show you the response QR.
+   one you read, all sixteen characters. **Only if they match** do they enter
+   their passphrase and show you the response QR.
 4. Scan each response and paste the `rrnrecover-resp:…` lines into the waiting
    command. When enough are in, the volume mounts.
 
@@ -152,14 +162,14 @@ station has no key of its own, so the request cannot be signed. Someone who
 copied the machine and ran their own ceremony would show a **different**
 fingerprint, and the holders would catch it. If a holder's fingerprint does
 not match yours, **stop**. Someone else is running a ceremony against your
-holders. The algorithm is pinned in the
-[boot ceremony spec](https://github.com/railroad-network/station/blob/main/docs/spec/vmk-boot-ceremony.md)
-so the app and the station always agree.
+holders. It is the same code every recovery ceremony uses, computed by one
+function that the app and the station share; the algorithm is pinned in the
+[ceremony fingerprint spec](https://github.com/railroad-network/station/blob/main/docs/spec/vmk-boot-ceremony.md).
 
 > **Tip.** Holders can answer remotely if they must. A response is sealed to
 > this one ceremony and is useless to anyone else. What cannot be skipped is
-> the fingerprint comparison, which is the only thing telling a remote holder
-> that the request really came from you.
+> the fingerprint comparison, read back by voice, which is the only thing
+> telling a remote holder that the request really came from you.
 
 ### Running under systemd
 
