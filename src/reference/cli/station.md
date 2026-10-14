@@ -26,7 +26,7 @@ Commands:
   recovery          Manage key recovery: split the station key across trusted holders so a threshold of them can restore it after a lost passphrase (ADR-0016)
   status            Report the at-rest storage profile, and (encrypted profile) whether the state volume is currently unlocked. Works with the daemon stopped
   encrypt-in-place  Migrate this plaintext station to the encrypted at-rest profile: provision a member-keyed LUKS container, move the wallet and ledger inside, and split the Volume Master Key across holders (ADR-0024). Linux only. One-way — keep a backup first, and destroy the old media afterward (secure erase is unreliable on flash/SD)
-  unlock            Run the boot ceremony and unlock (mount) the encrypted state volume, so the daemon can then be started (ADR-0024). Linux only. Prints a request QR and a console fingerprint for holders to confirm, then reads their responses
+  unlock            Run the boot ceremony and unlock (mount) the encrypted state volume, so the daemon can then be started (ADR-0024). Linux only. Prints a request QR and a ceremony fingerprint for holders to confirm, then reads their responses
   vmk               Manage the Volume Master Key custody (encrypted profile, ADR-0024)
   help              Print this message or the help of the given subcommand(s)
 
@@ -295,7 +295,7 @@ Options:
 ### `station unlock`
 
 ```text
-Run the boot ceremony and unlock (mount) the encrypted state volume, so the daemon can then be started (ADR-0024). Linux only. Prints a request QR and a console fingerprint for holders to confirm, then reads their responses
+Run the boot ceremony and unlock (mount) the encrypted state volume, so the daemon can then be started (ADR-0024). Linux only. Prints a request QR and a ceremony fingerprint for holders to confirm, then reads their responses
 
 Usage: station unlock [OPTIONS]
 

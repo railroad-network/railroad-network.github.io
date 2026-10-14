@@ -17,10 +17,12 @@ message, or paper.
 whole number of centicommons; there are no fractions or floats anywhere in a
 signed record.
 
-**Ceremony fingerprint.** A short code derived from a recovery or boot
-request, shown on the requester's screen and on every holder's screen. Read
-aloud and matched between people before a holder contributes, because the
-request itself carries no proof of who is asking.
+**Ceremony fingerprint.** A 16-character code (`XXXX-XXXX-XXXX-XXXX`)
+derived from a recovery or boot request, shown on the requester's screen and
+on every holder's screen. Read aloud and matched between people before a
+holder contributes, because the request itself carries no proof of who is
+asking. The phone app shows an older, shorter code until its next update
+(October 2026).
 
 **Charter.** A community's founding document: its id, principles, guaranteed
 rights, and founders, signed by the founders. Amendments chain to the version

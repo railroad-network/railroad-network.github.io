@@ -139,13 +139,22 @@ member's new phone or laptop, or the station console for the station's key or
 its encrypted volume. Whichever it is, it shows a **request QR** and a
 **ceremony fingerprint**.
 
+> **Codes do not match across devices yet (October 2026).** The ceremony
+> fingerprint was lengthened to sixteen characters (`XXXX-XXXX-XXXX-XXXX`)
+> and made the same on every screen. The station console and `rrn wallet`
+> already show the new code; the phone app still shows an older, shorter one.
+> A phone helping a phone still matches, but a phone cannot confirm a
+> ceremony run on a laptop or at the station until the app is updated, and
+> there is no update to install yet. A shorter code that does not match is a
+> mismatch: stop.
+
 1. Open Settings → Shards you hold → **Help someone recover**.
 2. **Scan the request** the station is showing. The app checks that you
    actually hold a piece for the identity the request names; if not, it says
    so and stops.
 3. **Confirm.** The app shows the address being recovered and the **ceremony
-   fingerprint**. **Read the fingerprint aloud and check it matches the one on
-   the requester's screen.** The request itself carries no proof of who is
+   fingerprint**. **Read the fingerprint aloud and check every character
+   matches the one on the requester's screen.** The request itself carries no proof of who is
    asking; the matching fingerprint, between people who know each other, is
    that proof. A mismatch means someone else is running a ceremony with this
    address: stop.
@@ -155,7 +164,9 @@ its encrypted volume. Whichever it is, it shows a **request QR** and a
    person running the ceremony scans it. The response is useless to anyone
    else and for any other ceremony, so if you truly cannot attend, it is
    acceptable to relay the response over a chat, provided you have confirmed
-   the fingerprint with the requester by voice first.
+   the fingerprint with the requester by voice first, on a call to a number
+   you already had. A code that arrived in the same chat as the request
+   proves nothing.
 
 ## Walkthrough: rebuild your key on a new phone
 
