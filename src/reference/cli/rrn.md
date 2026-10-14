@@ -2924,7 +2924,7 @@ Usage: rrn wallet [OPTIONS] <COMMAND>
 Commands:
   init          Create a new member wallet (or restore a backed-up one) pinned to a station
   recover       Rebuild a lost key from your recovery circle, into a fresh wallet home
-  pair          Pair with the station over the sealed channel; prints the SAS for the operator to confirm
+  pair          Pair with the station over the sealed channel; prints the confirmation code the operator types to confirm
   sync          Re-anchor and sync: nonce, outbox head, balance, and delivery receipts
   status        Show local wallet state — never unlocks the key
   pay           Sign a payment: chained into the outbox, pending until submitted/carried
@@ -3056,7 +3056,7 @@ Options:
 #### `rrn wallet pair`
 
 ```text
-Pair with the station over the sealed channel; prints the SAS for the operator to confirm
+Pair with the station over the sealed channel; prints the confirmation code the operator types to confirm
 
 Usage: rrn wallet pair [OPTIONS] --url <URL>
 

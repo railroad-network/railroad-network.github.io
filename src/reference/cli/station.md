@@ -17,7 +17,7 @@ Commands:
   init              Bootstrap a new station: generate an identity and initialize storage
   run               Run the daemon (default)
   peers             Inspect the static peer configuration
-  pair-mobile       Confirm a mobile's pairing request (ADR-0008). With no address, lists the pending requests and their confirmation codes; pass an address to confirm it after comparing the code with the mobile's screen in person
+  pair-mobile       Confirm a device's pairing request (ADR-0008). With no address, lists the pending requests and their confirmation codes; pass an address and the code the device shows to confirm it. The station checks the code against its own and refuses a mismatch
   list-mobiles      List the mobiles currently paired with this station
   unpair            Revoke a mobile's pairing by its bech32 address. The member stays enrolled; use `station enroll --revoke` to end its credit
   enroll            Enroll a member who never pairs — paper-first or radio-only — after the same in-person check as pairing (ADR-0038). Only an enrolled member may go into debt; any other key can spend only what it holds. Pairing a phone enrolls it automatically
@@ -91,14 +91,15 @@ Options:
 ### `station pair-mobile`
 
 ```text
-Confirm a mobile's pairing request (ADR-0008). With no address, lists the pending requests and their confirmation codes; pass an address to confirm it after comparing the code with the mobile's screen in person
+Confirm a device's pairing request (ADR-0008). With no address, lists the pending requests and their confirmation codes; pass an address and the code the device shows to confirm it. The station checks the code against its own and refuses a mismatch
 
 Usage: station pair-mobile [OPTIONS] [ADDRESS]
 
 Arguments:
-  [ADDRESS]  The bech32 address of the pending mobile to confirm
+  [ADDRESS]  The bech32 address of the pending device to confirm
 
 Options:
+      --code <CODE>          The confirmation code shown on the device (`XXXXX-XXXXX`), typed from the device's screen
       --data-dir <DATA_DIR>  Data directory (wallet, database, socket, config)
   -h, --help                 Print help
 ```
