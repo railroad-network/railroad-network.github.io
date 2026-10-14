@@ -107,9 +107,16 @@ wallet, and each needs to be physically present, one at a time. See
 ### Changing your circle
 
 Settings → Social recovery → **Update my circle** runs the same steps again
-with a new list. Your identity and address do not change. **Every old shard
-stops working** the moment you split again, so re-hand-out to everyone, not
-just the new people.
+with a new list. Your identity and address do not change, and neither does
+your key: the new pieces are a fresh split of the same key. Hand a new piece to
+everyone in the new circle, not just the new people. Old and new pieces cannot
+be mixed in one recovery.
+
+**Your old pieces still work.** Enough of your former holders, together, can
+still rebuild your key, and nobody can take a piece back. Ask anyone you remove
+to forget theirs (Settings → Shards you hold → **Forget**). If you no longer
+trust enough of your old holders, a new circle will not protect you: start a
+new identity instead.
 
 ## Walkthrough: hold a shard for someone
 
@@ -118,15 +125,29 @@ day they need you.
 
 1. **Be there when they split.** They will show you one QR code.
 2. Open Settings → **Shards you hold** and scan it. The app accepts only a
-   real recovery shard, and only one addressed to you. A plain address or any
-   other QR is rejected with an explanation.
-3. The app confirms: "You're now holding a recovery piece. If your friend
-   ever needs it, any 3 of their N holders can bring them back."
-4. **Keep your phone and your wallet.** The shard lives inside your wallet's
+   real recovery shard. A plain address or any other QR is rejected with an
+   explanation, and so is a shard made for a different identity ("This piece
+   isn't addressed to you"): your phone could never use it.
+3. The app confirms, naming whose piece it is: "Piece saved for …", with
+   their full address and how many of their holders it takes to bring them
+   back.
+4. **If you already hold a piece for that person** and scan a different one,
+   the app asks first, and its default is **Keep my current piece**. Replace
+   it only if they asked you, in person, to take a new one. A shard carries no
+   proof of who made it, so anyone can make a code that claims to be theirs;
+   swap enough real pieces for fakes and they cannot recover.
+
+   > Steps 2–4 describe the app as fixed in October 2026, and no updated app
+   > has been handed out yet. The older app files a shard without checking
+   > whom it is for and replaces a held piece without asking, so with it,
+   > never scan a "new piece" you did not watch the owner make.
+5. **Keep your phone and your wallet.** The shard lives inside your wallet's
    secure storage. If you change phones or reset, it is gone; tell your
    friend so they can re-run setup.
-5. **Do not forget a shard** (the "Forget" action on that screen) unless the
-   owner has told you they re-split and yours is dead.
+6. **Do not forget a shard** (the "Forget" action on that screen) unless the
+   owner asks you to, for example because they took you out of their circle.
+   A piece from an earlier split still works with the other pieces from that
+   split, so forgetting it when asked matters.
 
 You cannot read the shard, and nobody can make you hand it over without your
 passphrase. Holding one for someone is safe.
@@ -142,19 +163,19 @@ its encrypted volume. Whichever it is, it shows a **request QR** and a
 > **Codes do not match across devices yet (October 2026).** The ceremony
 > fingerprint was lengthened to sixteen characters (`XXXX-XXXX-XXXX-XXXX`)
 > and made the same on every screen. The station console and `rrn wallet`
-> already show the new code; the phone app still shows an older, shorter one.
-> A phone helping a phone still matches, but a phone cannot confirm a
-> ceremony run on a laptop or at the station until the app is updated, and
-> there is no update to install yet. A shorter code that does not match is a
-> mismatch: stop.
+> show the new code. The phone app has been fixed to show it too, but no
+> updated app has been handed out yet; until you have it, your phone shows an
+> older, shorter code. Two phones on the same older app still match each
+> other, but an older phone cannot confirm a ceremony run on a laptop or at
+> the station. A shorter code that does not match is a mismatch: stop.
 
 1. Open Settings → Shards you hold → **Help someone recover**.
 2. **Scan the request** the station is showing. The app checks that you
    actually hold a piece for the identity the request names; if not, it says
    so and stops.
 3. **Confirm.** The app shows the address being recovered and the **ceremony
-   fingerprint**. **Read the fingerprint aloud and check every character
-   matches the one on the requester's screen.** The request itself carries no proof of who is
+   fingerprint**. **Read the fingerprint aloud, all four groups, and check
+   every character matches the one on the requester's screen.** The request itself carries no proof of who is
    asking; the matching fingerprint, between people who know each other, is
    that proof. A mismatch means someone else is running a ceremony with this
    address: stop.
@@ -184,8 +205,8 @@ help or hinder.
    card, a friend's contact list, or the community list on someone else's
    phone. The app checks it is an address.
 4. The app mints a fresh ceremony and shows a **request QR** and, under it, a
-   short **ceremony fingerprint** in large type. Every holder must see this
-   same fingerprint.
+   sixteen-character **ceremony fingerprint** in large type. Every holder must
+   see this same fingerprint. Never send the code along with the request.
 5. **Each holder, in person:** opens Settings → Shards you hold → **Help
    someone recover**, scans your request, and their phone shows the address
    being recovered and the same fingerprint. **They read the fingerprint

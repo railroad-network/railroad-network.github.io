@@ -103,7 +103,7 @@ receipt. See [The courier desk](courier-desk.md) for the full table.
 | `station run` exits right after a reboot | The volume is locked. | `station status`, then `station unlock` with a quorum of holders. |
 | A systemd unit crash-loops after a reboot | Same. `Restart=always` retries before anyone can run the ceremony. | Use `Restart=on-failure` and start the unit after the ceremony. Expected behaviour. |
 | A holder's fingerprint does not match the console | Someone else is running a ceremony against your holders, or the holder scanned an old request. | **Stop.** Start a fresh `station unlock` and compare again. |
-| A holder's phone shows a shorter code than the console's 16 characters | The app predates the current fingerprint (October 2026). | The holder must not respond. They update the app first; see [Encrypted at rest](encrypted-at-rest.md). |
+| A holder's phone shows a shorter code than the console's 16 characters | The app predates the current fingerprint (October 2026). The fix is in the app but no updated build has been handed out yet. | The holder must not respond until they have the updated app; see [Encrypted at rest](encrypted-at-rest.md). |
 | A holder's phone says it is not holding a piece for this | They scanned a shard for a different key, or never scanned one. | `station vmk status` shows the real holder set. Re-issue with `station vmk refresh`. |
 | `encrypt-in-place` refuses to run | The station is already encrypted. | A rotation is a fresh migration; see [Encrypted at rest](encrypted-at-rest.md). |
 | The station starts in the encrypted profile on macOS | It will not: the profile refuses rather than serving plaintext. | Linux only. |

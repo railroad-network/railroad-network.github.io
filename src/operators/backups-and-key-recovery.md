@@ -84,10 +84,11 @@ station recovery show-shard <addr>   # re-display one holder's QR
 ```
 
 > **Phone holders cannot confirm the fingerprint yet (October 2026).** The
-> station shows the new 16-character code and the phone app still shows an
-> older, shorter one, so a holder following the rule must decline until the
-> app is updated, and there is no update to install yet. Keep your passphrase
-> safe in the meantime.
+> station shows the new 16-character code. The phone app has been fixed to
+> show the same code, but no updated app has been handed out yet; a phone on
+> the older app shows a shorter code, so a holder following the rule must
+> decline until they have the update. Keep your passphrase safe in the
+> meantime.
 
 **Use it** the day the passphrase is gone. Gather a threshold of holders in
 one room:
