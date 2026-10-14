@@ -5,12 +5,24 @@ the phone that it is talking to the real station, and to the station that
 this phone is welcome. **The code comparison is the actual security boundary**
 of the whole system, so do it face to face, reading the code aloud.
 
+The code is 10 characters, written `XXXXX-XXXXX`, and it is new every time
+someone pairs. You confirm by typing the code the member's device shows; the
+station checks it against its own and refuses a mismatch.
+
 ## A phone
+
+> **Phones cannot pair yet (October 2026).** The station's pairing handshake
+> was replaced with a stronger one, and the phone app does not speak it yet.
+> A phone that tries gets "pairing protocol v1 is retired; update the app",
+> and there is no update to install yet. Phones that were already paired keep
+> working. Until the app is updated, pair a new member with
+> [a computer](#a-computer-instead-of-a-phone). The steps below describe the
+> phone once it is.
 
 **On the phone.** After creating a wallet, the member taps **Join your
 community**. The station appears by name, or they tap *Add by address* and
-type the station's IP and port 7500. They unlock; the phone shows an
-**8-character code**.
+type the station's IP and port 7500. They unlock; the phone shows a
+**10-character code** (`XXXXX-XXXXX`).
 
 **On the station:**
 
@@ -21,11 +33,16 @@ station pair-mobile
 lists the pending requests, each with a code and the phone's `rrn1…` address.
 
 **Together.** Compare the code on the phone with the one the station printed.
-If, and only if, they match:
+If, and only if, they match, type the code **as the phone shows it** (case
+and the hyphen do not matter):
 
 ```sh
-station pair-mobile <the-phone's-rrn1-address>
+station pair-mobile <the-phone's-rrn1-address> --code <the-code-on-the-phone>
 ```
+
+The station refuses a code that does not match the request from that address,
+so a request someone else planted under another address cannot be confirmed by
+mistake.
 
 and the member confirms on their phone. The phone now syncs, receives push
 updates, and can transact.
@@ -57,11 +74,12 @@ On the member's laptop:
 ```sh
 export RRN_WALLET_PASSPHRASE='something the member chooses'   # never on a command line
 rrn wallet init  --station rrn1<your-station-address>          # prints their new rrn1… address
-rrn wallet pair  --url 192.168.4.1:7500                        # shows an 8-character code
+rrn wallet pair  --url 192.168.4.1:7500                        # shows a 10-character code
 ```
 
 Confirm the pair exactly as for a phone: compare the code the wallet prints
-with what `station pair-mobile` lists, then confirm their address. The member
+with what `station pair-mobile` lists, then run
+`station pair-mobile <their-rrn1-address> --code <the-code-the-wallet-printed>`. The member
 then runs `rrn wallet sync` to pull their nonce, balance, and receipts.
 
 Two things the member must understand:
