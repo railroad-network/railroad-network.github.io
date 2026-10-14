@@ -136,12 +136,12 @@ station run             # once the volume is mounted, the daemon starts normally
 
 > **Phone holders cannot confirm the code yet (October 2026).** The
 > fingerprint was lengthened and made the same on every screen. The console
-> shows the new 16-character code, and the phone app still shows an older,
-> shorter one, so the two never match, and a holder following the rule must
-> decline. There is no app update to install yet. Until there is, a quorum of
+> shows the new 16-character code. The phone app has been fixed to show the
+> same code, but no updated app has been handed out yet, and a phone on the
+> older app shows a shorter code that never matches, so a holder following the
+> rule must decline. Until your holders have the updated app, a quorum of
 > phone holders cannot safely run this ceremony: keep the station on a UPS so
-> a power cut does not lock it. The steps below describe the app once it is
-> updated.
+> a power cut does not lock it. The steps below describe the updated app.
 
 The ceremony, step by step:
 

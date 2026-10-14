@@ -231,9 +231,10 @@ rrn wallet recover --station rrn1<the-station-address> --address rrn1<your-old-a
 The command prints a **request QR** and a 16-character **ceremony
 fingerprint** (`XXXX-XXXX-XXXX-XXXX`). Read all four groups aloud; each holder
 must see the same code on their screen before they answer, which is what stops
-someone with a stolen request from tricking your holders. (Until the phone app's
-next update, October 2026, holders' phones show an older, shorter code that
-will not match, so a holder cannot yet confirm a laptop ceremony; see
+someone with a stolen request from tricking your holders. (The phone app has been
+fixed to show this code, but no updated app has been handed out yet, October
+2026; until a holder has it, their phone shows an older, shorter code that will
+not match, so they cannot confirm a laptop ceremony; see
 [Keep your keys safe](keep-your-keys-safe.md).) Each holder scans the request in the app under **Shards you hold
 → Help someone recover** and shows you a response QR; paste each response line
 into the waiting command. When enough are in, the key is rebuilt on your
