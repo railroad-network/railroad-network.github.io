@@ -42,9 +42,20 @@ advertise = true               # announce on the LAN so the app finds it by name
 ```
 
 An optional read-only **replica** of that writer, for audit or an off-site
-copy. It pulls the writer's log and admits nothing:
+copy. It pulls the writer's log and admits nothing. The writer must listen on
+an address the replica can reach **and** list the replica's IP address, because
+it serves its log only to loopback and its listed replicas:
 
 ```toml
+# on the writer
+[network]
+listen = "192.168.4.1:7400"
+role = "writer"
+replicas = ["192.168.4.20"]    # each replica's IP address: exact, no port, no ranges
+```
+
+```toml
+# on the replica (192.168.4.20)
 [peers]
 list = ["192.168.4.1:7400"]    # the writer's [network] listen address
 
@@ -67,6 +78,7 @@ This is a different port and protocol from the one phones use.
 | Key | Default | Meaning |
 | --- | --- | --- |
 | `listen` | `"127.0.0.1:74xx"` (random on `init`) | `host:port` for inbound station-to-station connections. Required. A writer still serves this port so a replica can copy from it. |
+| `replicas` | `[]` | IP addresses this station serves its log to over `listen`, besides loopback, which is always served. Exact addresses only: no port, no ranges, no hostnames (an IPv4 address and its IPv4-mapped IPv6 form count as the same). Every other address is refused. A replica receives **every record on the log**, so list only machines you run. A station bound beyond loopback with this empty warns at startup. |
 | `role` | `"writer"` | `"writer"` owns the community's log, admits records at its own front door, and never pulls. `"replica"` pulls the writer's log and refuses every write: the console, the phone channel, and courier ingest all answer that this station is a read-replica, and the sweeps that would append records do not run. A replica is not a failover. |
 
 ## `[peers]`

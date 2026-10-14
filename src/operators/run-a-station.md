@@ -69,7 +69,7 @@ advertise = true             # announce the station on the LAN so phones find it
 Two practical notes:
 
 - **Firewall.** Allow inbound TCP 7500 from your LAN. Port 7400 should stay
-  unreachable from other machines.
+  unreachable from other machines, except from your configured replicas.
 - **Advertising.** `advertise = true` makes the station appear in the app's
   "Join your community" list. If your network blocks mDNS, members type the
   station's address and port by hand instead.
@@ -77,7 +77,13 @@ Two practical notes:
 Your station is a **writer**: it owns the log and there is exactly one per
 community. A writer has no peers. You can optionally run a second station as
 a read-only **replica** for off-site audit; it can never write, so it can
-never fork the community. The runbook covers it.
+never fork the community. The writer serves its log only to loopback and the
+addresses under `[network] replicas`, and a replica receives every record on
+the log, so list only machines you run. The connection is not encrypted: for a
+replica off your LAN, use a VPN, or an SSH tunnel to `127.0.0.1:7400` on the
+writer. Upgrade the writer and its replicas together. See the
+[configuration reference](../reference/configuration.md); the runbook covers
+the rest.
 
 ## 4. Run
 

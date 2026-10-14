@@ -47,6 +47,10 @@ Some limitations worth knowing as a user:
   [Encrypted at rest](../operators/encrypted-at-rest.md).
 - **A read replica is a copy of the history, not a second source of
   balances.** Its derived views are empty by design, loudly.
+- **A replica receives every record on the log.** The writer serves its log
+  only to loopback and the addresses listed in `[network] replicas`, but it
+  recognizes a replica by its network address, not a key, and the connection
+  is not encrypted. Run a replica off your LAN over a VPN or SSH tunnel.
 
 ## Reporting a vulnerability
 
