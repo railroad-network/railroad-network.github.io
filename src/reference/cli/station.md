@@ -68,7 +68,7 @@ Inspect the static peer configuration
 Usage: station peers [OPTIONS] <COMMAND>
 
 Commands:
-  list  Print the configured peers
+  list  Print the role, the replicas the chain is served to, and the configured peers
   help  Print this message or the help of the given subcommand(s)
 
 Options:
@@ -79,7 +79,7 @@ Options:
 #### `station peers list`
 
 ```text
-Print the configured peers
+Print the role, the replicas the chain is served to, and the configured peers
 
 Usage: station peers list [OPTIONS]
 
