@@ -134,14 +134,10 @@ station unlock          # prints a request QR and a 16-character fingerprint
 station run             # once the volume is mounted, the daemon starts normally
 ```
 
-> **Phone holders cannot confirm the code yet (October 2026).** The
-> fingerprint was lengthened and made the same on every screen. The console
-> shows the new 16-character code. The phone app has been fixed to show the
-> same code, but no updated app has been handed out yet, and a phone on the
-> older app shows a shorter code that never matches, so a holder following the
-> rule must decline. Until your holders have the updated app, a quorum of
-> phone holders cannot safely run this ceremony: keep the station on a UPS so
-> a power cut does not lock it. The steps below describe the updated app.
+> **Phone holders need app version 1.1 or later.** The console shows a
+> 16-character code, and so does app 1.1. An older app shows a shorter code
+> that never matches, so a holder on it must decline. Make sure enough of
+> your holders have updated before you rely on this ceremony.
 
 The ceremony, step by step:
 
