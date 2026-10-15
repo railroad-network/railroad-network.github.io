@@ -21,8 +21,8 @@ signed record.
 derived from a recovery or boot request, shown on the requester's screen and
 on every holder's screen. Read aloud and matched between people before a
 holder contributes, because the request itself carries no proof of who is
-asking. The phone app shows an older, shorter code until its next update
-(October 2026).
+asking. Phone apps older than version 1.1 show a shorter code that does not
+match.
 
 **Charter.** A community's founding document: its id, principles, guaranteed
 rights, and founders, signed by the founders. Amendments chain to the version

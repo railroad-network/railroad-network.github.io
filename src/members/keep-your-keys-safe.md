@@ -137,10 +137,10 @@ day they need you.
    proof of who made it, so anyone can make a code that claims to be theirs;
    swap enough real pieces for fakes and they cannot recover.
 
-   > Steps 2–4 describe the app as fixed in October 2026, and no updated app
-   > has been handed out yet. The older app files a shard without checking
-   > whom it is for and replaces a held piece without asking, so with it,
-   > never scan a "new piece" you did not watch the owner make.
+   > Steps 2–4 need app version 1.1 or later. An older app files a shard
+   > without checking whom it is for and replaces a held piece without
+   > asking, so update first, and until you do, never scan a "new piece" you
+   > did not watch the owner make.
 5. **Keep your phone and your wallet.** The shard lives inside your wallet's
    secure storage. If you change phones or reset, it is gone; tell your
    friend so they can re-run setup.
@@ -160,14 +160,11 @@ member's new phone or laptop, or the station console for the station's key or
 its encrypted volume. Whichever it is, it shows a **request QR** and a
 **ceremony fingerprint**.
 
-> **Codes do not match across devices yet (October 2026).** The ceremony
-> fingerprint was lengthened to sixteen characters (`XXXX-XXXX-XXXX-XXXX`)
-> and made the same on every screen. The station console and `rrn wallet`
-> show the new code. The phone app has been fixed to show it too, but no
-> updated app has been handed out yet; until you have it, your phone shows an
-> older, shorter code. Two phones on the same older app still match each
-> other, but an older phone cannot confirm a ceremony run on a laptop or at
-> the station. A shorter code that does not match is a mismatch: stop.
+> **You need app version 1.1 or later.** The ceremony fingerprint is
+> sixteen characters (`XXXX-XXXX-XXXX-XXXX`) and the same on every screen:
+> the station console, `rrn wallet`, and app 1.1. An older app shows a
+> shorter code that cannot match a laptop or station ceremony. A shorter
+> code that does not match is a mismatch: stop, and update the app.
 
 1. Open Settings → Shards you hold → **Help someone recover**.
 2. **Scan the request** the station is showing. The app checks that you
