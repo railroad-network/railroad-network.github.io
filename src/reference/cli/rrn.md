@@ -2936,7 +2936,7 @@ Commands:
   sync          Re-anchor and sync: nonce, outbox head, balance, and delivery receipts
   status        Show local wallet state — never unlocks the key
   pay           Sign a payment: chained into the outbox, pending until submitted/carried
-  confirm       Confirm a proposed payment addressed to you. The wallet signs only a proposal it has checked: fetched from the station by id (online), or read from a carried `rrnspend:` voucher or exported bundle (`--from`). It shows who pays whom first; a payment *request* — you pay — needs `--accept-debit`
+  confirm       Confirm a proposed payment addressed to you
   vote          Cast a governance ballot
   dispute       Contest a confirmed payment
   vouch         Vouch for another member (online only — needs the station reachable)
@@ -2944,7 +2944,7 @@ Commands:
   export        Export pending outbox entries as QR sheets or a raw bundle (offline path)
   submit        Submit pending entries online: bundle → channel → apply receipts
   receipts      Delivery receipts
-  abandon       Stop carrying a pending record that can never succeed — e.g. a confirmation of a payment whose sender never delivers it — so it no longer holds up the outbox. Not a revocation: a copy already carried can still be admitted. A record the station never received leaves its chain position empty there for good, which `sync` reports. A proposal cannot be abandoned. Local only: no passphrase, no station
+  abandon       Stop carrying a pending record that can never succeed
   show          Show local outbox rows and their dispositions
   transactions  Your transactions, read live from the station over the channel
   help          Print this message or the help of the given subcommand(s)
@@ -3230,7 +3230,9 @@ Options:
 #### `rrn wallet confirm`
 
 ```text
-Confirm a proposed payment addressed to you. The wallet signs only a proposal it has checked: fetched from the station by id (online), or read from a carried `rrnspend:` voucher or exported bundle (`--from`). It shows who pays whom first; a payment *request* — you pay — needs `--accept-debit`
+Confirm a proposed payment addressed to you.
+
+The wallet signs only a proposal it has checked: fetched from the station by id (online), or read from a carried `rrnspend:` voucher or exported bundle (`--from`). It shows who pays whom first; a payment *request* — you pay — needs `--accept-debit`.
 
 Usage: rrn wallet confirm [OPTIONS] [TX_ID]
 
@@ -3563,7 +3565,9 @@ Options:
 #### `rrn wallet abandon`
 
 ```text
-Stop carrying a pending record that can never succeed — e.g. a confirmation of a payment whose sender never delivers it — so it no longer holds up the outbox. Not a revocation: a copy already carried can still be admitted. A record the station never received leaves its chain position empty there for good, which `sync` reports. A proposal cannot be abandoned. Local only: no passphrase, no station
+Stop carrying a pending record that can never succeed.
+
+For example, a confirmation of a payment whose sender never delivers it, so it no longer holds up the outbox. Not a revocation: a copy already carried can still be admitted. A record the station never received leaves its chain position empty there for good, which `sync` reports. A proposal cannot be abandoned. Local only: no passphrase, no station.
 
 Usage: rrn wallet abandon [OPTIONS] <RECORD_HASH>
 
