@@ -1,7 +1,7 @@
 # Railroad Network — documentation site
 
 The human-facing documentation for [Railroad Network](https://github.com/railroad-network),
-published at <https://railroad-network.github.io>.
+published at <https://railroadnetwork.org>.
 
 The engineering record — Architecture Decision Records, wire specs, the threat
 model, and the security audits — stays in the
