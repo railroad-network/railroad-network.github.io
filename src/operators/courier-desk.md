@@ -56,8 +56,9 @@ Scan every QR on the sheet into a text file, one line each, in any order.
 Then:
 
 ```sh
-# Look before you ingest. Works with the daemon stopped.
-rrn paper show --in scanned.txt
+# Look before you ingest. Works with the daemon stopped. Pass your station's
+# address so certificates and receipts are checked against it.
+rrn paper show --station rrn1<your-station> --in scanned.txt
 
 # Ingest: reassemble, submit to the station, print each record's outcome,
 # and write the receipts for the return trip.
@@ -65,7 +66,12 @@ rrn paper ingest --in scanned.txt --out carryback/
 ```
 
 `show` classifies every payload, verifies every signature it can, and reports
-which chunks are missing from an incomplete group. Use it when a sheet looks
+which chunks are missing from an incomplete group. A certificate or receipt is
+reported verified only when your station signed it: without `--station`, `show`
+says the signer was not checked and reports `verified: false`, because anyone
+can sign a well-formed certificate with a key of their own. Bundle entries are
+checked against their own authors; whether an author is a member is the
+station's decision at ingest. Use it when a sheet looks
 damaged or a courier is unsure what they were handed.
 
 `ingest` prints one line per carried record with its outcome:

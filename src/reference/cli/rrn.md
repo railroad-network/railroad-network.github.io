@@ -2530,7 +2530,9 @@ Options:
 #### `rrn paper show`
 
 ```text
-Classify and pretty-print any paper payload(s) without ingesting them — the courier's inspection path. Verifies every signature it can and reports missing chunks for incomplete multi-part groups. Needs no station
+Classify and pretty-print any paper payload(s) without ingesting them — the courier's inspection path. Verifies every signature it can and reports missing chunks for incomplete multi-part groups. Needs no station.
+
+A station-signed artifact (certificate, receipt, a voucher's certificate) is reported verified only when its signer is the station given with `--station`; without it, the output says the signer was not checked. A spend voucher gets the receiver's full offline verdict only with both `--station` and `--receiver`.
 
 Usage: rrn paper show [OPTIONS] --in <INPUT>
 
@@ -2550,6 +2552,9 @@ Options:
           
           [default: text]
 
+      --station <STATION>
+          The station's `rrn1…` address: station-signed artifacts are checked against it
+
       --color <COLOR>
           Colorize text output. Off unless asked for
 
@@ -2558,6 +2563,9 @@ Options:
           - always: Colorize, whatever stdout is attached to
           
           [default: never]
+
+      --receiver <RECEIVER>
+          Your own `rrn1…` address, as the receiver of a spend voucher
 
   -h, --help
           Print help (see a summary with '-h')
@@ -2928,7 +2936,7 @@ Commands:
   sync          Re-anchor and sync: nonce, outbox head, balance, and delivery receipts
   status        Show local wallet state — never unlocks the key
   pay           Sign a payment: chained into the outbox, pending until submitted/carried
-  confirm       Confirm a proposed payment addressed to you
+  confirm       Confirm a proposed payment addressed to you. The wallet signs only a proposal it has checked: fetched from the station by id (online), or read from a carried `rrnspend:` voucher or exported bundle (`--from`). It shows who pays whom first; a payment *request* — you pay — needs `--accept-debit`
   vote          Cast a governance ballot
   dispute       Contest a confirmed payment
   vouch         Vouch for another member (online only — needs the station reachable)
@@ -3222,17 +3230,23 @@ Options:
 #### `rrn wallet confirm`
 
 ```text
-Confirm a proposed payment addressed to you
+Confirm a proposed payment addressed to you. The wallet signs only a proposal it has checked: fetched from the station by id (online), or read from a carried `rrnspend:` voucher or exported bundle (`--from`). It shows who pays whom first; a payment *request* — you pay — needs `--accept-debit`
 
-Usage: rrn wallet confirm [OPTIONS] <TX_ID>
+Usage: rrn wallet confirm [OPTIONS] [TX_ID]
 
 Arguments:
-  <TX_ID>
-          The hex transaction id
+  [TX_ID]
+          The hex transaction id (required with a bundle; optional with a voucher, where it must match the voucher's proposal)
 
 Options:
+      --from <FROM>
+          Read the proposal from a carried voucher (`rrnspend:` / `rrnp:` lines) or bundle (`rrnp:` lines or a raw `payload.bundle`) instead of the station
+
       --socket <SOCKET>
           Path to the station's Unix socket
+
+      --accept-debit
+          Sign even though the proposal debits you (a payment request)
 
       --format <FORMAT>
           Output format

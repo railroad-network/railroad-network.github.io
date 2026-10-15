@@ -105,12 +105,18 @@ sign a record the station reads as a forked identity.
 | --- | --- |
 | See your address, pairing, and how many records are pending | `rrn wallet status` (never unlocks the key) |
 | Pay someone | `rrn wallet pay rrn1<receiver> 3.50 --memo "eggs"` |
-| Confirm a payment addressed to you | `rrn wallet confirm <tx-id>` |
+| Confirm a payment addressed to you | `rrn wallet confirm <tx-id>` (offline: add `--from <voucher-or-bundle file>`) |
 | Vote on a proposal | `rrn wallet vote <proposal-id> yes` (or `no`, `abstain`) |
 | Contest a confirmed payment | `rrn wallet dispute <tx-id> --reason "…"` |
 | Vouch for someone | `rrn wallet vouch rrn1<address> --statement "…" --stake <amount>` |
 | Your transactions, live from the station | `rrn wallet transactions` |
 | Your local outbox and what happened to each record | `rrn wallet show` (add `--all` for history) |
+
+`confirm` checks the payment before it signs. Online it fetches the payer's
+signed proposal from the station; offline you give it the voucher or bundle the
+payer handed you with `--from`. It then shows who pays whom. A **payment
+request**, where *you* would pay, is refused unless you add `--accept-debit`,
+so "confirm this id, I paid you" cannot trick you into signing a debit.
 
 Every signing command chains the record into your **outbox**. Nothing reaches
 the station until it is submitted or carried there, so the normal online rhythm
@@ -186,6 +192,10 @@ rrn wallet pay rrn1<receiver> 6.00 --cert <cert-id-or-prefix> --carrier slow \
 rrn wallet cert return <cert-id>    # give back what you did not use (a chained record, carried like any other)
 rrn wallet cert import --in card.txt   # load a certificate from an rrncert: line, for instance a printed card
 ```
+
+The receiver checks a voucher offline with
+`rrn paper show --in voucher.txt --station rrn1<station> --receiver rrn1<their own address>`,
+or confirms straight from it with `rrn wallet confirm --from voucher.txt`.
 
 Reserved headroom is idle headroom: a 10-Common certificate is 10 Commons you
 cannot spend online until it expires or you return it. Reserve before a market
