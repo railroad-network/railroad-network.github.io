@@ -2530,7 +2530,9 @@ Options:
 #### `rrn paper show`
 
 ```text
-Classify and pretty-print any paper payload(s) without ingesting them — the courier's inspection path. Verifies every signature it can and reports missing chunks for incomplete multi-part groups. Needs no station
+Classify and pretty-print any paper payload(s) without ingesting them — the courier's inspection path. Verifies every signature it can and reports missing chunks for incomplete multi-part groups. Needs no station.
+
+A station-signed artifact (certificate, receipt, a voucher's certificate) is reported verified only when its signer is the station given with `--station`; without it, the output says the signer was not checked. A spend voucher gets the receiver's full offline verdict only with both `--station` and `--receiver`.
 
 Usage: rrn paper show [OPTIONS] --in <INPUT>
 
@@ -2550,6 +2552,9 @@ Options:
           
           [default: text]
 
+      --station <STATION>
+          The station's `rrn1…` address: station-signed artifacts are checked against it
+
       --color <COLOR>
           Colorize text output. Off unless asked for
 
@@ -2558,6 +2563,9 @@ Options:
           - always: Colorize, whatever stdout is attached to
           
           [default: never]
+
+      --receiver <RECEIVER>
+          Your own `rrn1…` address, as the receiver of a spend voucher
 
   -h, --help
           Print help (see a summary with '-h')
@@ -2936,7 +2944,7 @@ Commands:
   export        Export pending outbox entries as QR sheets or a raw bundle (offline path)
   submit        Submit pending entries online: bundle → channel → apply receipts
   receipts      Delivery receipts
-  abandon       Stop carrying a pending record that can never succeed — e.g. a confirmation of a payment whose sender never delivers it — so it no longer holds up the outbox. Not a revocation: a copy already carried can still be admitted. A record the station never received leaves its chain position empty there for good, which `sync` reports. A proposal cannot be abandoned. Local only: no passphrase, no station
+  abandon       Stop carrying a pending record that can never succeed
   show          Show local outbox rows and their dispositions
   transactions  Your transactions, read live from the station over the channel
   help          Print this message or the help of the given subcommand(s)
@@ -3222,17 +3230,25 @@ Options:
 #### `rrn wallet confirm`
 
 ```text
-Confirm a proposed payment addressed to you
+Confirm a proposed payment addressed to you.
 
-Usage: rrn wallet confirm [OPTIONS] <TX_ID>
+The wallet signs only a proposal it has checked: fetched from the station by id (online), or read from a carried `rrnspend:` voucher or exported bundle (`--from`). It shows who pays whom first; a payment *request* — you pay — needs `--accept-debit`.
+
+Usage: rrn wallet confirm [OPTIONS] [TX_ID]
 
 Arguments:
-  <TX_ID>
-          The hex transaction id
+  [TX_ID]
+          The hex transaction id (required with a bundle; optional with a voucher, where it must match the voucher's proposal)
 
 Options:
+      --from <FROM>
+          Read the proposal from a carried voucher (`rrnspend:` / `rrnp:` lines) or bundle (`rrnp:` lines or a raw `payload.bundle`) instead of the station
+
       --socket <SOCKET>
           Path to the station's Unix socket
+
+      --accept-debit
+          Sign even though the proposal debits you (a payment request)
 
       --format <FORMAT>
           Output format
@@ -3549,7 +3565,9 @@ Options:
 #### `rrn wallet abandon`
 
 ```text
-Stop carrying a pending record that can never succeed — e.g. a confirmation of a payment whose sender never delivers it — so it no longer holds up the outbox. Not a revocation: a copy already carried can still be admitted. A record the station never received leaves its chain position empty there for good, which `sync` reports. A proposal cannot be abandoned. Local only: no passphrase, no station
+Stop carrying a pending record that can never succeed.
+
+For example, a confirmation of a payment whose sender never delivers it, so it no longer holds up the outbox. Not a revocation: a copy already carried can still be admitted. A record the station never received leaves its chain position empty there for good, which `sync` reports. A proposal cannot be abandoned. Local only: no passphrase, no station.
 
 Usage: rrn wallet abandon [OPTIONS] <RECORD_HASH>
 
